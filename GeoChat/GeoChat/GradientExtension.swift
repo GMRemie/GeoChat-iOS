@@ -15,7 +15,7 @@ extension UIView{
     func setGradient(colorOne:UIColor,colorTwo:UIColor,colorThree:UIColor){
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
+        gradientLayer.frame = frame
         // Need the CG color because CAGradientLayer is apart of core graphics
         gradientLayer.colors = [colorOne.cgColor,colorTwo.cgColor,colorThree.cgColor]
         gradientLayer.locations = [0.0,0.5,1.0]
