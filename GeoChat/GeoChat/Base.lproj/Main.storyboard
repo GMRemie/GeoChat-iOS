@@ -17,12 +17,38 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_forest" translatesAutoresizingMaskIntoConstraints="NO" id="bUS-Sg-uoF">
+                                <rect key="frame" x="0.0" y="-25" width="375" height="837"/>
+                            </imageView>
+                            <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="999-40-ZaI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" red="0.18431372549019609" green="0.28627450980392155" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="999-40-ZaI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="47l-xG-50d"/>
+                            <constraint firstAttribute="bottom" secondItem="bUS-Sg-uoF" secondAttribute="bottom" id="8XJ-Ab-Rmt"/>
+                            <constraint firstItem="999-40-ZaI" firstAttribute="trailing" secondItem="bUS-Sg-uoF" secondAttribute="trailing" id="AFb-Uy-k3G"/>
+                            <constraint firstItem="bUS-Sg-uoF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-69" id="CeE-4i-q4k"/>
+                            <constraint firstItem="999-40-ZaI" firstAttribute="leading" secondItem="bUS-Sg-uoF" secondAttribute="leading" id="Qh2-pu-ZHA"/>
+                            <constraint firstAttribute="trailing" secondItem="bUS-Sg-uoF" secondAttribute="trailing" id="RJM-tX-guJ"/>
+                            <constraint firstItem="bUS-Sg-uoF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rh6-GK-JaE"/>
+                            <constraint firstItem="999-40-ZaI" firstAttribute="bottom" secondItem="bUS-Sg-uoF" secondAttribute="bottom" id="nhl-ph-oRu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="gradientVIew" destination="999-40-ZaI" id="hY3-N2-Snd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="20.689655172413794"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login_forest" width="1920" height="1080"/>
+    </resources>
 </document>

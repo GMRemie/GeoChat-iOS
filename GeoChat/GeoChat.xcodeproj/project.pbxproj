@@ -31,6 +31,8 @@
 		D4043E6623151E7C004338B4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4043E5323151E7B004338B4 /* Poppins-SemiBold.ttf */; };
 		D4043E6723151E7C004338B4 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4043E5423151E7B004338B4 /* Poppins-Medium.ttf */; };
 		D4043E6823151E7C004338B4 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4043E5523151E7C004338B4 /* Poppins-LightItalic.ttf */; };
+		D4043E6B23154E9D004338B4 /* GradientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E6A23154E9D004338B4 /* GradientExtension.swift */; };
+		D4043E6D2315502A004338B4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E6C2315502A004338B4 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		D4043E5323151E7B004338B4 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		D4043E5423151E7B004338B4 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		D4043E5523151E7C004338B4 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		D4043E6A23154E9D004338B4 /* GradientExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientExtension.swift; sourceTree = "<group>"; };
+		D4043E6C2315502A004338B4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		D4043E2423151756004338B4 = {
 			isa = PBXGroup;
 			children = (
+				D4043E6C2315502A004338B4 /* Colors.swift */,
 				D4043E2F23151756004338B4 /* GeoChat */,
 				D4043E2E23151756004338B4 /* Products */,
 			);
@@ -92,10 +97,12 @@
 		D4043E2F23151756004338B4 /* GeoChat */ = {
 			isa = PBXGroup;
 			children = (
+				D4043E6923151FD6004338B4 /* New Group */,
 				D4043E4223151E58004338B4 /* Fonts */,
 				D4043E3023151757004338B4 /* AppDelegate.swift */,
 				D4043E3223151757004338B4 /* ViewController.swift */,
 				D4043E3423151757004338B4 /* Main.storyboard */,
+				D4043E6A23154E9D004338B4 /* GradientExtension.swift */,
 				D4043E372315175C004338B4 /* Assets.xcassets */,
 				D4043E392315175C004338B4 /* LaunchScreen.storyboard */,
 				D4043E3C2315175C004338B4 /* Info.plist */,
@@ -127,6 +134,13 @@
 				D4043E4A23151E7A004338B4 /* Poppins-ThinItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D4043E6923151FD6004338B4 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +234,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4043E3323151757004338B4 /* ViewController.swift in Sources */,
+				D4043E6D2315502A004338B4 /* Colors.swift in Sources */,
+				D4043E6B23154E9D004338B4 /* GradientExtension.swift in Sources */,
 				D4043E3123151757004338B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
