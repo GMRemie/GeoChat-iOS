@@ -117,13 +117,9 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
                     
                     // Upload the file to the path "images/rivers.jpg"
                     let uploadTask = avatarRef.putData(data, metadata: metadata) { (metadata, error) in
-                        guard let metadata = metadata else {
-                            // Uh-oh, an error occurred!
-                            print("Error occured")
-                            return
-                        }
+ 
                     }
-                    let successObserver = uploadTask.observe(.success, handler: { (StorageTaskSnapshot) in
+                    _ = uploadTask.observe(.success, handler: { (StorageTaskSnapshot) in
                         print("Image has been succesfully uploaded!")
                         let alert = UIAlertController(title: "Success!", message: "Your account has been succesfully created!", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
