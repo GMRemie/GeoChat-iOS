@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFA8BEAD6F74DC5E10C5BEC1 /* Pods_GeoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9C0181FAC70AF4B16B94B9 /* Pods_GeoChat.framework */; };
 		D4043E3123151757004338B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E3023151757004338B4 /* AppDelegate.swift */; };
 		D4043E3323151757004338B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E3223151757004338B4 /* ViewController.swift */; };
 		D4043E3623151757004338B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4043E3423151757004338B4 /* Main.storyboard */; };
@@ -33,9 +34,17 @@
 		D4043E6823151E7C004338B4 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4043E5523151E7C004338B4 /* Poppins-LightItalic.ttf */; };
 		D4043E6B23154E9D004338B4 /* GradientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E6A23154E9D004338B4 /* GradientExtension.swift */; };
 		D4043E6D2315502A004338B4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E6C2315502A004338B4 /* Colors.swift */; };
+		D4043E6F23165262004338B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4043E6E23165262004338B4 /* GoogleService-Info.plist */; };
+		D4043E71231659E2004338B4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E70231659E2004338B4 /* RegistrationViewController.swift */; };
+		D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E732316606C004338B4 /* UIButtonExtension.swift */; };
+		D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E75231668D2004338B4 /* FirebaseHelper.swift */; };
+		D4043E782316C399004338B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E772316C398004338B4 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A9C0181FAC70AF4B16B94B9 /* Pods_GeoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		375437C2F6A0FF316710DD5F /* Pods-GeoChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoChat/Pods-GeoChat.debug.xcconfig"; sourceTree = "<group>"; };
+		3EF5438A6C74A9A24F7F4F4A /* Pods-GeoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoChat/Pods-GeoChat.release.xcconfig"; sourceTree = "<group>"; };
 		D4043E2D23151756004338B4 /* GeoChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4043E3023151757004338B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4043E3223151757004338B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +73,11 @@
 		D4043E5523151E7C004338B4 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		D4043E6A23154E9D004338B4 /* GradientExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientExtension.swift; sourceTree = "<group>"; };
 		D4043E6C2315502A004338B4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D4043E6E23165262004338B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D4043E70231659E2004338B4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		D4043E732316606C004338B4 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		D4043E75231668D2004338B4 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		D4043E772316C398004338B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,18 +85,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA8BEAD6F74DC5E10C5BEC1 /* Pods_GeoChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42CAE4738237AA9EDFE4306D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A9C0181FAC70AF4B16B94B9 /* Pods_GeoChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D4043E2423151756004338B4 = {
 			isa = PBXGroup;
 			children = (
 				D4043E6C2315502A004338B4 /* Colors.swift */,
 				D4043E2F23151756004338B4 /* GeoChat */,
 				D4043E2E23151756004338B4 /* Products */,
+				F72D585439CDCA016109E887 /* Pods */,
+				42CAE4738237AA9EDFE4306D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,15 +122,16 @@
 		D4043E2F23151756004338B4 /* GeoChat */ = {
 			isa = PBXGroup;
 			children = (
-				D4043E6923151FD6004338B4 /* New Group */,
+				D4043E722316604A004338B4 /* Extensions */,
+				D4043E6923151FD6004338B4 /* Controllers */,
 				D4043E4223151E58004338B4 /* Fonts */,
-				D4043E3023151757004338B4 /* AppDelegate.swift */,
-				D4043E3223151757004338B4 /* ViewController.swift */,
 				D4043E3423151757004338B4 /* Main.storyboard */,
-				D4043E6A23154E9D004338B4 /* GradientExtension.swift */,
 				D4043E372315175C004338B4 /* Assets.xcassets */,
+				D4043E3023151757004338B4 /* AppDelegate.swift */,
 				D4043E392315175C004338B4 /* LaunchScreen.storyboard */,
+				D4043E6E23165262004338B4 /* GoogleService-Info.plist */,
 				D4043E3C2315175C004338B4 /* Info.plist */,
+				D4043E75231668D2004338B4 /* FirebaseHelper.swift */,
 			);
 			path = GeoChat;
 			sourceTree = "<group>";
@@ -136,11 +162,32 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		D4043E6923151FD6004338B4 /* New Group */ = {
+		D4043E6923151FD6004338B4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D4043E70231659E2004338B4 /* RegistrationViewController.swift */,
+				D4043E3223151757004338B4 /* ViewController.swift */,
+				D4043E772316C398004338B4 /* LoginViewController.swift */,
 			);
-			path = "New Group";
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D4043E722316604A004338B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D4043E6A23154E9D004338B4 /* GradientExtension.swift */,
+				D4043E732316606C004338B4 /* UIButtonExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F72D585439CDCA016109E887 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				375437C2F6A0FF316710DD5F /* Pods-GeoChat.debug.xcconfig */,
+				3EF5438A6C74A9A24F7F4F4A /* Pods-GeoChat.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +197,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4043E3F2315175D004338B4 /* Build configuration list for PBXNativeTarget "GeoChat" */;
 			buildPhases = (
+				45E7A9A6575091C3543DC4DF /* [CP] Check Pods Manifest.lock */,
 				D4043E2923151756004338B4 /* Sources */,
 				D4043E2A23151756004338B4 /* Frameworks */,
 				D4043E2B23151756004338B4 /* Resources */,
+				309C64A9A1689B30FBADC47C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +261,7 @@
 				D4043E5F23151E7C004338B4 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				D4043E6023151E7C004338B4 /* Poppins-ExtraLight.ttf in Resources */,
 				D4043E5B23151E7C004338B4 /* OFL.txt in Resources */,
+				D4043E6F23165262004338B4 /* GoogleService-Info.plist in Resources */,
 				D4043E5923151E7C004338B4 /* Poppins-Bold.ttf in Resources */,
 				D4043E6423151E7C004338B4 /* Poppins-ExtraBold.ttf in Resources */,
 				D4043E6123151E7C004338B4 /* Poppins-Regular.ttf in Resources */,
@@ -228,15 +278,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		309C64A9A1689B30FBADC47C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GeoChat/Pods-GeoChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeoChat/Pods-GeoChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45E7A9A6575091C3543DC4DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeoChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D4043E2923151756004338B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */,
 				D4043E3323151757004338B4 /* ViewController.swift in Sources */,
 				D4043E6D2315502A004338B4 /* Colors.swift in Sources */,
 				D4043E6B23154E9D004338B4 /* GradientExtension.swift in Sources */,
+				D4043E782316C399004338B4 /* LoginViewController.swift in Sources */,
 				D4043E3123151757004338B4 /* AppDelegate.swift in Sources */,
+				D4043E71231659E2004338B4 /* RegistrationViewController.swift in Sources */,
+				D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +477,7 @@
 		};
 		D4043E402315175D004338B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 375437C2F6A0FF316710DD5F /* Pods-GeoChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -398,6 +496,7 @@
 		};
 		D4043E412315175D004338B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EF5438A6C74A9A24F7F4F4A /* Pods-GeoChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

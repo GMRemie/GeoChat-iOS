@@ -22,8 +22,13 @@ class ViewController: UIViewController {
        gradientVIew.setGradient(colorOne: Colors.blue, colorTwo: Colors.middle_blue, colorThree: Colors.bottom_blue)
         
         // round our button
-        signUpButton.layer.cornerRadius = 24
-        loginButton.layer.cornerRadius = 24
+        signUpButton.roundCorners()
+        loginButton.roundCorners()
+        
+        
+        // Load life cycle
+        // check to see if user has any user defaults and check if it logs in
+        
         
     }
 
