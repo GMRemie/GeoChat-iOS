@@ -17,6 +17,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     
     
+    var path:DatabaseReference!
+
+    var selectedUserProfile: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,8 @@ class LoginViewController: UIViewController {
         // Customize button
         signupButton.roundCorners()
         
-        
+        path = Database.database().reference()
+
     }
     
     
@@ -38,13 +42,80 @@ class LoginViewController: UIViewController {
             }
             
             if (AuthDataResult?.user != nil){
+                
+                let aUser = AuthDataResult!.user
+                
                 print("Signed in succesfully")
+                let storage = Storage.storage().reference()
+                let storageRef = storage.child(aUser.uid)
+                let avatarRef = storageRef.child("avatar/avatar.jpg")
+                
+                // get handle and other user information later on in beta states
+                let userInfoPath = self.path.child("users").child(aUser.uid)
+                var userHandle: String!
+                userInfoPath.observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                    if let snap = DataSnapshot.value as? NSDictionary{
+                        userHandle = snap["handle"] as! String
+                        print(userHandle)
+                    }
+                })
+                
+                
+                
+
+                avatarRef.downloadURL(completion: { (url, Error) in
+                    if (Error != nil){
+                        print("ERror downloading url")
+                    }else{
+                        let config = URLSessionConfiguration.default
+                        let session = URLSession.init(configuration: config)
+                        
+                        let task = session.dataTask(with: url!, completionHandler: { (Data, Response, Error) in
+                        
+                            if (Error != nil){
+                                print(Error!.localizedDescription)
+                                return
+                            }
+                            
+                            guard let response = Response as? HTTPURLResponse, response.statusCode == 200 else{
+                                print("Error getting HTTP REsponse")
+                                return
+                            }
+                            
+                            let avatar = UIImage(data: Data!, scale: 0.5)
+                            let currentUser = User(_email: Auth.auth().currentUser!.email!, _id: Auth.auth().currentUser!.uid, _handle: userHandle, _avatar: avatar)
+                            self.selectedUserProfile = currentUser
+                            print("Loaded information, proceeding to segue")
+                            DispatchQueue.main.async {
+                                print("Performing segue")
+                                self.performSegue(withIdentifier: "SignIn", sender: self)
+                            }
+
+                        })
+                        task.resume()
+                    }
+                })
+
+
             }
         }
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if let destination = (segue.destination as? UITabBarController)?.viewControllers!.first! as? MapViewController{
+            destination.Profile = selectedUserProfile
+
+        }
+        
+        //if let destinations = (segue.destination as! UITabBarController).viewControllers!.first! as? MapViewController{
+
+      //  }
     
-    @IBAction func forgotPassword(_ sender: UIButton) {
+        
     }
+
+    
 }

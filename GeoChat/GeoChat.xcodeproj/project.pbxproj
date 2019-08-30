@@ -39,6 +39,14 @@
 		D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E732316606C004338B4 /* UIButtonExtension.swift */; };
 		D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E75231668D2004338B4 /* FirebaseHelper.swift */; };
 		D4043E782316C399004338B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E772316C398004338B4 /* LoginViewController.swift */; };
+		D4813D7F2317FCE30005A512 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D7E2317FCE30005A512 /* MapViewController.swift */; };
+		D4813D8123182B910005A512 /* GeoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D8023182B910005A512 /* GeoMessage.swift */; };
+		D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D82231847BB0005A512 /* CreatePostViewController.swift */; };
+		D4813D852318854C0005A512 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D842318854C0005A512 /* MessageViewController.swift */; };
+		D4813D872318863C0005A512 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D862318863C0005A512 /* MessageContainer.swift */; };
+		D4813D8923189C9E0005A512 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D8823189C9E0005A512 /* SettingsViewController.swift */; };
+		D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */; };
+		D4E1C3482316D06B0049A39D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3472316D06B0049A39D /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +86,14 @@
 		D4043E732316606C004338B4 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		D4043E75231668D2004338B4 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		D4043E772316C398004338B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D4813D7E2317FCE30005A512 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D4813D8023182B910005A512 /* GeoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMessage.swift; sourceTree = "<group>"; };
+		D4813D82231847BB0005A512 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		D4813D842318854C0005A512 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		D4813D862318863C0005A512 /* MessageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
+		D4813D8823189C9E0005A512 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		D4E1C3472316D06B0049A39D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +138,7 @@
 		D4043E2F23151756004338B4 /* GeoChat */ = {
 			isa = PBXGroup;
 			children = (
+				D4E1C3462316D0450049A39D /* Objects */,
 				D4043E722316604A004338B4 /* Extensions */,
 				D4043E6923151FD6004338B4 /* Controllers */,
 				D4043E4223151E58004338B4 /* Fonts */,
@@ -168,6 +185,11 @@
 				D4043E70231659E2004338B4 /* RegistrationViewController.swift */,
 				D4043E3223151757004338B4 /* ViewController.swift */,
 				D4043E772316C398004338B4 /* LoginViewController.swift */,
+				D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */,
+				D4813D7E2317FCE30005A512 /* MapViewController.swift */,
+				D4813D82231847BB0005A512 /* CreatePostViewController.swift */,
+				D4813D842318854C0005A512 /* MessageViewController.swift */,
+				D4813D8823189C9E0005A512 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,6 +201,16 @@
 				D4043E732316606C004338B4 /* UIButtonExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D4E1C3462316D0450049A39D /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D4E1C3472316D06B0049A39D /* User.swift */,
+				D4813D8023182B910005A512 /* GeoMessage.swift */,
+				D4813D862318863C0005A512 /* MessageContainer.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		F72D585439CDCA016109E887 /* Pods */ = {
@@ -224,6 +256,11 @@
 				TargetAttributes = {
 					D4043E2C23151756004338B4 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -326,14 +363,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4813D7F2317FCE30005A512 /* MapViewController.swift in Sources */,
+				D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */,
+				D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */,
 				D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */,
 				D4043E3323151757004338B4 /* ViewController.swift in Sources */,
 				D4043E6D2315502A004338B4 /* Colors.swift in Sources */,
+				D4813D852318854C0005A512 /* MessageViewController.swift in Sources */,
+				D4813D8923189C9E0005A512 /* SettingsViewController.swift in Sources */,
 				D4043E6B23154E9D004338B4 /* GradientExtension.swift in Sources */,
 				D4043E782316C399004338B4 /* LoginViewController.swift in Sources */,
 				D4043E3123151757004338B4 /* AppDelegate.swift in Sources */,
 				D4043E71231659E2004338B4 /* RegistrationViewController.swift in Sources */,
+				D4E1C3482316D06B0049A39D /* User.swift in Sources */,
+				D4813D872318863C0005A512 /* MessageContainer.swift in Sources */,
 				D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */,
+				D4813D8123182B910005A512 /* GeoMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

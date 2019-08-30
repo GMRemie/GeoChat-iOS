@@ -84,6 +84,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
                 self.present(alert, animated: true)
             }else{
                 
+                
+                
                 Auth.auth().createUser(withEmail: email!, password: password!) { (AuthDataResult, Error) in
                     if (Error != nil) {
                         let alert = UIAlertController.init(title: "Error", message: "There was an error creating your account!", preferredStyle: .alert)
