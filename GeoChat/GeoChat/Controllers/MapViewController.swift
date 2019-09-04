@@ -23,6 +23,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var discovered = [String]()
     var messages = [String:GeoMessage]()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

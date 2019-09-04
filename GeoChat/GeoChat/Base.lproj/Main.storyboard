@@ -1256,6 +1256,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="vAE-jF-QOB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Abn-IT-hqh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -1274,7 +1275,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="e1y-5j-f3X"/>
-        <segue reference="JTs-WX-TbK"/>
+        <segue reference="vD6-ob-5Cn"/>
         <segue reference="ppl-Ag-cCJ"/>
     </inferredMetricsTieBreakers>
 </document>
