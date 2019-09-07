@@ -21,6 +21,9 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
     
     var imagePicker:UIImagePickerController!
     
+    @IBOutlet weak var bizSwitch: UISwitch!
+    
+    
     var path:DatabaseReference!
     
     var customProfilePicture = false
@@ -69,6 +72,14 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
         picker.dismiss(animated: true)
     }
     
+    @IBAction func bizInfo(_ sender: UIButton) {
+        
+        let info = UIAlertController(title: "Business Account", message: "A business account is the same as a regular account. Business accounts have the option to purchase premium business markers that everyone can see.", preferredStyle: .alert)
+        info.addAction(UIAlertAction(title: "Continue", style: .default))
+        self.present(info, animated: true)
+    }
+    
+    
     
 
     @IBAction func signupClicked(_ sender: UIButton) {
@@ -84,9 +95,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
                 self.present(alert, animated: true)
             }else{
                 
-                
+                // So handle is available at this point
                 
                 Auth.auth().createUser(withEmail: email!, password: password!) { (AuthDataResult, Error) in
+                    // This isnt catching error appropriately
                     if (Error != nil) {
                         let alert = UIAlertController.init(title: "Error", message: "There was an error creating your account!", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Continue", style: .default))
@@ -103,6 +115,9 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
                     
                     // Update our user account
                     self.path.child("users").child(user.uid).child("handle").setValue(handle!)
+                    
+                    // Update our business account status
+                    self.path.child("users").child(user.uid).child("business").setValue(self.bizSwitch.isOn)
                     
                     // Upload our profile picture!
                     // Create a root reference

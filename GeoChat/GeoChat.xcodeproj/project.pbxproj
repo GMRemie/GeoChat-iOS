@@ -39,6 +39,7 @@
 		D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E732316606C004338B4 /* UIButtonExtension.swift */; };
 		D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E75231668D2004338B4 /* FirebaseHelper.swift */; };
 		D4043E782316C399004338B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E772316C398004338B4 /* LoginViewController.swift */; };
+		D447B3212323700E001E78DA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447B3202323700E001E78DA /* SearchViewController.swift */; };
 		D4813D7F2317FCE30005A512 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D7E2317FCE30005A512 /* MapViewController.swift */; };
 		D4813D8123182B910005A512 /* GeoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D8023182B910005A512 /* GeoMessage.swift */; };
 		D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D82231847BB0005A512 /* CreatePostViewController.swift */; };
@@ -86,6 +87,7 @@
 		D4043E732316606C004338B4 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		D4043E75231668D2004338B4 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		D4043E772316C398004338B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D447B3202323700E001E78DA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D4813D7E2317FCE30005A512 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D4813D8023182B910005A512 /* GeoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMessage.swift; sourceTree = "<group>"; };
 		D4813D82231847BB0005A512 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				D4813D82231847BB0005A512 /* CreatePostViewController.swift */,
 				D4813D842318854C0005A512 /* MessageViewController.swift */,
 				D4813D8823189C9E0005A512 /* SettingsViewController.swift */,
+				D447B3202323700E001E78DA /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				D4813D7F2317FCE30005A512 /* MapViewController.swift in Sources */,
 				D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */,
 				D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */,
+				D447B3212323700E001E78DA /* SearchViewController.swift in Sources */,
 				D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */,
 				D4043E3323151757004338B4 /* ViewController.swift in Sources */,
 				D4043E6D2315502A004338B4 /* Colors.swift in Sources */,
