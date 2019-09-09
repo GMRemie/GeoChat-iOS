@@ -1551,7 +1551,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="addedUser" id="oP6-gd-Urz">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="addedUser" id="oP6-gd-Urz" customClass="AddedUserCollectionViewCell" customModule="GeoChat" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1580,8 +1580,16 @@
                                                     <constraint firstItem="M4d-cR-b8K" firstAttribute="leading" secondItem="oP6-gd-Urz" secondAttribute="leading" id="QBA-Bd-xC7"/>
                                                     <constraint firstAttribute="bottom" secondItem="M4d-cR-b8K" secondAttribute="bottom" id="hCn-M2-vVI"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="avatar" destination="mxg-7l-Gja" id="QWv-Wl-bek"/>
+                                                    <outlet property="handle" destination="M4d-cR-b8K" id="oHJ-39-9L0"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="tR0-dw-HZg" id="uKu-cb-ruP"/>
+                                            <outlet property="delegate" destination="tR0-dw-HZg" id="fn1-ZM-CYe"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1636,11 +1644,13 @@
                     <connections>
                         <outlet property="addUserButton" destination="kEp-oq-o9y" id="AcO-6N-Kne"/>
                         <outlet property="captionText" destination="uUf-el-SjE" id="pon-3e-1ah"/>
+                        <outlet property="collectionView" destination="O1s-I7-UG6" id="n9A-56-C8u"/>
                         <outlet property="imageView" destination="ZvY-zq-cM0" id="IF2-jy-pO1"/>
                         <outlet property="privateMessageDetails" destination="VQ4-yX-ccd" id="yff-Bu-9LH"/>
                         <outlet property="publicSwitch" destination="jEc-Eu-gdy" id="1Td-T1-otp"/>
                         <outlet property="selectImage" destination="efM-UW-gMg" id="AC5-PY-dhI"/>
                         <outlet property="sendButton" destination="fR7-Su-369" id="KjK-AM-MYU"/>
+                        <segue destination="8Px-Xh-U4D" kind="show" identifier="selectUser" id="huv-0T-0m9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7b0-UD-jg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1961,6 +1971,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iW2-n1-naw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3244" y="17"/>
+        </scene>
+        <!--Select Users View Controller-->
+        <scene sceneID="9IT-9B-vfJ">
+            <objects>
+                <viewController id="8Px-Xh-U4D" customClass="SelectUsersViewController" customModule="GeoChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ws-h1-OhL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cz6-AD-7qI">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="l3h-Yw-NVO">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="YGD-8S-nHh">
+                                            <connections>
+                                                <action selector="backButton:" destination="8Px-Xh-U4D" id="Xac-2S-pAA"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOE-Io-2lN">
+                                <rect key="frame" x="30" y="118" width="315" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0jo-yP-mvy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zHh-PE-9af">
+                                <rect key="frame" x="0.0" y="198" width="375" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="user" textLabel="34u-r5-a9U" style="IBUITableViewCellStyleDefault" id="mq3-Ej-dGC">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mq3-Ej-dGC" id="trb-hr-bBM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="34u-r5-a9U">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Px-Xh-U4D" id="Fk4-bs-a1U"/>
+                                    <outlet property="delegate" destination="8Px-Xh-U4D" id="VID-V5-SgQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c92-t4-Zra" firstAttribute="trailing" secondItem="zHh-PE-9af" secondAttribute="trailing" id="97C-gk-2Rz"/>
+                            <constraint firstItem="EOE-Io-2lN" firstAttribute="leading" secondItem="c92-t4-Zra" secondAttribute="leading" constant="30" id="CN4-jD-sHl"/>
+                            <constraint firstItem="zHh-PE-9af" firstAttribute="top" secondItem="EOE-Io-2lN" secondAttribute="bottom" constant="30" id="CrD-4Y-Rjq"/>
+                            <constraint firstItem="Cz6-AD-7qI" firstAttribute="leading" secondItem="c92-t4-Zra" secondAttribute="leading" id="KqE-RS-HdK"/>
+                            <constraint firstItem="c92-t4-Zra" firstAttribute="trailing" secondItem="EOE-Io-2lN" secondAttribute="trailing" constant="30" id="W8R-DW-qzs"/>
+                            <constraint firstItem="Cz6-AD-7qI" firstAttribute="top" secondItem="c92-t4-Zra" secondAttribute="top" id="XOQ-DC-aXd"/>
+                            <constraint firstItem="EOE-Io-2lN" firstAttribute="top" secondItem="Cz6-AD-7qI" secondAttribute="bottom" constant="30" id="aHX-if-yQR"/>
+                            <constraint firstItem="zHh-PE-9af" firstAttribute="leading" secondItem="c92-t4-Zra" secondAttribute="leading" id="cng-dk-MUs"/>
+                            <constraint firstAttribute="trailing" secondItem="Cz6-AD-7qI" secondAttribute="trailing" id="iJj-Bi-5Gv"/>
+                            <constraint firstItem="c92-t4-Zra" firstAttribute="bottom" secondItem="zHh-PE-9af" secondAttribute="bottom" id="uEa-F4-U8u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c92-t4-Zra"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="zHh-PE-9af" id="xhv-P3-eFO"/>
+                        <segue destination="4Eh-Df-IVy" kind="unwind" identifier="unwind" unwindAction="unwindToCreateWithSegue:" id="itz-MI-MUb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUw-Od-SZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4Eh-Df-IVy" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4230" y="130"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nUw-qx-0l0">

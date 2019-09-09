@@ -19,8 +19,10 @@ class GeoMessage: NSObject, MKAnnotation{
     var lat: Double
     var long:Double
     var id: String
+    var users: [String:String]?
+    var privacy: Bool = false
     
-    init(title:String,lat:Double,long:Double,author:String, caption:String?,url:String?, id:String){
+    init(title:String,lat:Double,long:Double,author:String, caption:String?,url:String?, id:String, privacy:Bool?){
         self.title = title
         self.author = author
         self.lat = lat
@@ -29,6 +31,7 @@ class GeoMessage: NSObject, MKAnnotation{
         self.url = url
         self.id = id
         coordinate = CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)
+        self.privacy = privacy!
         super.init()
     }
     func convertToDict() -> [String:Any] {
@@ -40,6 +43,10 @@ class GeoMessage: NSObject, MKAnnotation{
         dict["caption"] = self.caption!
         dict["url"] = self.url!
         dict["id"] = self.id
+        dict["privacy"] = self.privacy
+        if (users != nil){
+            dict["users"] = self.users!
+        }
         
         return dict
     }

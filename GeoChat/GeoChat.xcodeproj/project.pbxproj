@@ -46,6 +46,8 @@
 		D4594A592326BD2900C95F72 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A582326BD2900C95F72 /* Notification.swift */; };
 		D4594A5B2326CE7200C95F72 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A5A2326CE7200C95F72 /* NotificationViewController.swift */; };
 		D4594A5D2326F71B00C95F72 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A5C2326F71B00C95F72 /* NotificationTableViewCell.swift */; };
+		D4594A5F2327095300C95F72 /* SelectUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A5E2327095300C95F72 /* SelectUsersViewController.swift */; };
+		D4594A61232714D800C95F72 /* AddedUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A60232714D800C95F72 /* AddedUserCollectionViewCell.swift */; };
 		D4813D7F2317FCE30005A512 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D7E2317FCE30005A512 /* MapViewController.swift */; };
 		D4813D8123182B910005A512 /* GeoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D8023182B910005A512 /* GeoMessage.swift */; };
 		D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D82231847BB0005A512 /* CreatePostViewController.swift */; };
@@ -100,6 +102,8 @@
 		D4594A582326BD2900C95F72 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		D4594A5A2326CE7200C95F72 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		D4594A5C2326F71B00C95F72 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		D4594A5E2327095300C95F72 /* SelectUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUsersViewController.swift; sourceTree = "<group>"; };
+		D4594A60232714D800C95F72 /* AddedUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4813D7E2317FCE30005A512 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D4813D8023182B910005A512 /* GeoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMessage.swift; sourceTree = "<group>"; };
 		D4813D82231847BB0005A512 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				D4594A5123263EF400C95F72 /* ProfileViewController.swift */,
 				D4594A5623266ECB00C95F72 /* PublicProfileViewController.swift */,
 				D4594A5A2326CE7200C95F72 /* NotificationViewController.swift */,
+				D4594A5E2327095300C95F72 /* SelectUsersViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			children = (
 				D4594A542326581400C95F72 /* SearchResultTableViewCell.swift */,
 				D4594A5C2326F71B00C95F72 /* NotificationTableViewCell.swift */,
+				D4594A60232714D800C95F72 /* AddedUserCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,8 +399,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4813D7F2317FCE30005A512 /* MapViewController.swift in Sources */,
+				D4594A61232714D800C95F72 /* AddedUserCollectionViewCell.swift in Sources */,
 				D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */,
 				D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */,
+				D4594A5F2327095300C95F72 /* SelectUsersViewController.swift in Sources */,
 				D447B3212323700E001E78DA /* SearchViewController.swift in Sources */,
 				D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */,
 				D4043E3323151757004338B4 /* ViewController.swift in Sources */,

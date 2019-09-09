@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 import CoreLocation
 
-class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
+class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate,UICollectionViewDataSource  {
+
 
     
     @IBOutlet weak var selectImage: UIButton!
@@ -18,6 +19,7 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var collectionView: UICollectionView!
     
     
     @IBOutlet weak var captionText: UITextField!
@@ -30,6 +32,7 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     var coordinates: CLLocationCoordinate2D!
     
+    var users = [String:String]()
     
     @IBOutlet weak var publicSwitch: UISwitch!
     
@@ -50,6 +53,8 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
         
 
     }
+    
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -97,7 +102,8 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
                     let uuid = generator.uuidString
                     
                     // Successfully got download URL
-                    let geoMessage = GeoMessage(title: "New Message", lat: self.coordinates.latitude, long: self.coordinates.longitude, author: self.profile.uniqueID, caption: caption, url: durl?.absoluteString, id: uuid)
+                    let geoMessage = GeoMessage(title: "New Message", lat: self.coordinates.latitude, long: self.coordinates.longitude, author: self.profile.uniqueID, caption: caption, url: durl?.absoluteString, id: uuid, privacy: !(self.publicSwitch.isOn))
+                    geoMessage.users = self.users
                     
 
                     self.path.child("public").child(uuid).setValue(geoMessage.convertToDict(), withCompletionBlock: { (Error, DatabaseReference) in
@@ -132,6 +138,15 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
         picker.dismiss(animated: true)
     }
     
+    @IBAction func unwindToCreate(segue:UIStoryboardSegue) {
+        if let source = segue.source as? SelectUsersViewController{
+            let tuple = source.selected
+            users[tuple!.0] = tuple!.1
+            self.collectionView.reloadData()
+        }
+        
+    }
+
     
     
     @IBAction func switchClicked(_ sender: UISwitch) {
@@ -147,6 +162,28 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     
     @IBAction func addUserClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: "selectUser", sender: self)
         // This is called when the user tries ading people to the receipt list
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SelectUsersViewController{
+            destination.curUser = profile
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addedUser", for: indexPath) as! AddedUserCollectionViewCell
+        let key = Array(users.keys)[indexPath.row]
+        cell.handle.text = users[key]
+        
+        
+        return cell
+    }
+    
 }

@@ -107,15 +107,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     let title = newValues["title"] as! String
                     let url = newValues["url"] as! String
                     let k:String = key as! String
-                    
-                    let msg = GeoMessage(title: title, lat: lat, long: long, author: author, caption: caption, url: url, id: k)
-                    self.messages[k] = msg
-                    if (self.discovered.contains(k)){
-                        // not discovered
+                    let privacy = newValues["privacy"] as! Bool
+                    if (privacy){
+                        guard let users = newValues["users"] as? [String:String] else{
+                            return
+                        }
+                        let msg = GeoMessage(title: title, lat: lat, long: long, author: author, caption: caption, url: url, id: k,privacy:false)
+                        msg.users = users
+                        self.messages[k] = msg
+                        if (self.discovered.contains(k)){
+                            // already discovered
+                        }else{
+                            if (author != self.Profile.uniqueID){
+                                print("adding a region")
+                                // Make sure we are a target user!
+                                if ((msg.users?.keys.contains(self.Profile.uniqueID))!){
+                                    self.monitorAndRegisterMessage(msg: msg)
+                                }
+                            }
+                        }
                     }else{
-                        if (author != self.Profile.uniqueID){
-                            print("adding a region")
-                            self.monitorAndRegisterMessage(msg: msg)
+                        let msg = GeoMessage(title: title, lat: lat, long: long, author: author, caption: caption, url: url, id: k,privacy:false)
+                        self.messages[k] = msg
+                        if (self.discovered.contains(k)){
+                            // not discovered
+                        }else{
+                            if (author != self.Profile.uniqueID){
+                                self.monitorAndRegisterMessage(msg: msg)
+                            }
                         }
                     }
                 }
