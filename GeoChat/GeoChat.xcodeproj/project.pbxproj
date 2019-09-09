@@ -43,6 +43,7 @@
 		D4594A5223263EF600C95F72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A5123263EF400C95F72 /* ProfileViewController.swift */; };
 		D4594A552326581400C95F72 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A542326581400C95F72 /* SearchResultTableViewCell.swift */; };
 		D4594A5723266ECC00C95F72 /* PublicProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A5623266ECB00C95F72 /* PublicProfileViewController.swift */; };
+		D4594A592326BD2900C95F72 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A582326BD2900C95F72 /* Notification.swift */; };
 		D4813D7F2317FCE30005A512 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D7E2317FCE30005A512 /* MapViewController.swift */; };
 		D4813D8123182B910005A512 /* GeoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D8023182B910005A512 /* GeoMessage.swift */; };
 		D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D82231847BB0005A512 /* CreatePostViewController.swift */; };
@@ -94,6 +95,7 @@
 		D4594A5123263EF400C95F72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D4594A542326581400C95F72 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		D4594A5623266ECB00C95F72 /* PublicProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProfileViewController.swift; sourceTree = "<group>"; };
+		D4594A582326BD2900C95F72 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		D4813D7E2317FCE30005A512 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D4813D8023182B910005A512 /* GeoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMessage.swift; sourceTree = "<group>"; };
 		D4813D82231847BB0005A512 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				D4E1C3472316D06B0049A39D /* User.swift */,
 				D4813D8023182B910005A512 /* GeoMessage.swift */,
 				D4813D862318863C0005A512 /* MessageContainer.swift */,
+				D4594A582326BD2900C95F72 /* Notification.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				D4043E71231659E2004338B4 /* RegistrationViewController.swift in Sources */,
 				D4E1C3482316D06B0049A39D /* User.swift in Sources */,
 				D4813D872318863C0005A512 /* MessageContainer.swift in Sources */,
+				D4594A592326BD2900C95F72 /* Notification.swift in Sources */,
 				D4594A5723266ECC00C95F72 /* PublicProfileViewController.swift in Sources */,
 				D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */,
 				D4813D8123182B910005A512 /* GeoMessage.swift in Sources */,

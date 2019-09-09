@@ -42,8 +42,13 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
         
         pickImage.layer.cornerRadius = pickImage.bounds.height/2
         
+        
+        
+
+        
     }
     
+
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -159,11 +164,31 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
  
     }
     
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+            keyboardWillChange(up: true)
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+
+            keyboardWillChange(up: false)
+        
+    }
+    
     // Keyboard pushing up
     
+    func keyboardWillChange(up:Bool){
+        
+        if (up){
+            view.frame.origin.y = -240
+
+        }else{
+            view.frame.origin.y = 0
+        }
+    }
     
     
-    
-    
+ 
     
 }

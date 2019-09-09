@@ -211,5 +211,26 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        keyboardWillChange(up: true)
+        
+    }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        keyboardWillChange(up: false)
+        
+    }
+    
+    // Keyboard pushing up
+    
+    func keyboardWillChange(up:Bool){
+        
+        if (up){
+            view.frame.origin.y = -240
+            
+        }else{
+            view.frame.origin.y = 0
+        }
+    }
 }

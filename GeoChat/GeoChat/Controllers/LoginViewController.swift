@@ -112,6 +112,10 @@ class LoginViewController: UIViewController {
             destination.userInfo = selectedUserProfile
         }
         
+        if let destination = (segue.destination as? UITabBarController)?.viewControllers![1] as? SearchViewController{
+            destination.curUser = selectedUserProfile
+        }
+        
         //if let destinations = (segue.destination as! UITabBarController).viewControllers!.first! as? MapViewController{
 
       //  }

@@ -24,6 +24,55 @@ class User{
         self.avatar = _avatar ?? nil
     }
     
+    
+    // All followers, following, and friends follow the same type of Handle - UID
+    
+    // Get Followers
+    func getUsersFollowers(){
+        let dRef = Database.database().reference()
+        
+        let followerPath = dRef.child("users").child(uniqueID).child("followers")
+        
+        followerPath.observeSingleEvent(of: .value) { (DataSnapshot) in
+            if let data = DataSnapshot.value as? NSDictionary{
+                for (k,v) in data{
+                }
+            }
+        }
+        
+    }
+    // Get following
+    func getUsersFollowing(){
+        let dRef = Database.database().reference()
+        
+        let followerPath = dRef.child("users").child(uniqueID).child("following")
+        
+        followerPath.observeSingleEvent(of: .value) { (DataSnapshot) in
+            if let data = DataSnapshot.value as? NSDictionary{
+                for (k,v) in data{
+                }
+            }
+        }
+        
+    }
+    
+    
+    // Get Friends
+    func getUsersFriends(){
+        let dRef = Database.database().reference()
+        
+        let followerPath = dRef.child("users").child(uniqueID).child("friends")
+        
+        followerPath.observeSingleEvent(of: .value) { (DataSnapshot) in
+            if let data = DataSnapshot.value as? NSDictionary{
+                for (k,v) in data{
+                }
+            }
+        }
+        
+    }
+    
+    
     func getBio(ref:DatabaseReference,label:UILabel){
         let userPath = ref.child("users").child(uniqueID)
         
