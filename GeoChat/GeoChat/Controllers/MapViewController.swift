@@ -24,7 +24,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var messages = [String:GeoMessage]()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
     
     
@@ -32,8 +32,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         super.viewDidLoad()
         
         
-        createButton.backgroundColor = Colors.blue
-        createButton.setTitleColor(Colors.yellow, for: .normal)
+        createButton.backgroundColor = Colors.yellow
         createButton.layer.cornerRadius = 40
         
         checkLocationServices()

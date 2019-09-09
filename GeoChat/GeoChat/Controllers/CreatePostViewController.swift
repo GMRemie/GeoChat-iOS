@@ -31,11 +31,19 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
     var coordinates: CLLocationCoordinate2D!
     
     
+    @IBOutlet weak var publicSwitch: UISwitch!
+    
+    @IBOutlet weak var privateMessageDetails: UIView!
+    
+    @IBOutlet weak var addUserButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         selectImage.layer.cornerRadius = 17
         sendButton.roundCorners()
+        
+        addUserButton.roundCorners()
+        addUserButton.layer.borderColor = Colors.blue.cgColor
 
         path = Database.database().reference()
         
@@ -122,5 +130,23 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
+    }
+    
+    
+    
+    @IBAction func switchClicked(_ sender: UISwitch) {
+        if(sender.isOn){
+            // public message
+            privateMessageDetails.isHidden = true
+            
+        }else{
+            // Private message
+            privateMessageDetails.isHidden = false
+        }
+    }
+    
+    
+    @IBAction func addUserClicked(_ sender: UIButton) {
+        // This is called when the user tries ading people to the receipt list
     }
 }

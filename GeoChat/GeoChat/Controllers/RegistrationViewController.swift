@@ -100,11 +100,13 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
                 Auth.auth().createUser(withEmail: email!, password: password!) { (AuthDataResult, Error) in
                     // This isnt catching error appropriately
                     if (Error != nil) {
-                        let alert = UIAlertController.init(title: "Error", message: "There was an error creating your account!", preferredStyle: .alert)
+                        
+                        let alert = UIAlertController.init(title: "Error", message: Error?.localizedDescription, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Continue", style: .default))
                         self.present(alert, animated: true)
                         
                         print("GeoChat Error occured! \(Error!)")
+                        return
                     }
                     
                     // Should be no error. Should be good to go
