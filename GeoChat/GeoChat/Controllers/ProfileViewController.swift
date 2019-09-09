@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var followersLabel: UILabel!
     
+    @IBOutlet weak var photosCount: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         handleLabel.text = "@\(userInfo!.handle!)"
@@ -70,15 +71,13 @@ class ProfileViewController: UIViewController {
                 
             default:
                 // friends
-                for (handle,id) in v as! [String:String]{
-                    friends[id] = handle
-                }
                 break
             }
             
         }
         
-        
+        followersLabel.text = "\(received.count)"
+        followingLabel.text = "\(sent.count)"
     }
 
     

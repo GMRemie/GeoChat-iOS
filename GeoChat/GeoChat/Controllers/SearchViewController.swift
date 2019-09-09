@@ -67,12 +67,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
                     received[id] = handle
                 }
                 break
-                
-            default:
-                // friends
+            case "friends":
                 for (handle,id) in v as! [String:String]{
                     friends[id] = handle
                 }
+                break
+            default:
+                // friends
+
                 break
             }
             
@@ -229,6 +231,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PublicProfileViewController{
             destination.userInfo = selectedUser
+            destination.curUser = curUser
         }
     }
 

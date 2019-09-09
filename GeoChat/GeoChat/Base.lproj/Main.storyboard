@@ -827,6 +827,7 @@
                         <outlet property="followersLabel" destination="8J5-Qs-BwK" id="u4E-DT-HyH"/>
                         <outlet property="followingLabel" destination="X9f-KO-4Dx" id="TZB-D8-AMR"/>
                         <outlet property="handleLabel" destination="2bJ-8C-Kfh" id="Jd1-Ac-dqD"/>
+                        <outlet property="photosCount" destination="44m-x5-Gbn" id="PId-wh-p9k"/>
                         <outlet property="profilePicture" destination="eHu-tu-Kd0" id="sko-2R-2mR"/>
                         <outlet property="userBio" destination="Y9e-Z1-TUJ" id="B3Q-Of-gtA"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="signOut" id="Ayk-Lc-KI0"/>
@@ -931,11 +932,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLy-3m-NZx">
-                                                    <rect key="frame" x="644" y="19" width="70" height="33"/>
+                                                    <rect key="frame" x="275" y="19" width="70" height="33"/>
                                                     <color key="backgroundColor" red="0.99874168630000004" green="0.84124857190000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="33" id="EFl-qX-5A2"/>
-                                                        <constraint firstAttribute="width" constant="70" id="t4M-sG-E1P"/>
+                                                        <constraint firstAttribute="height" constant="33" id="3eN-jK-1pa"/>
+                                                        <constraint firstAttribute="width" constant="70" id="dgG-W7-nAA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="15"/>
                                                     <state key="normal" title="Accept">
@@ -945,15 +946,15 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="jUG-g4-b5a" firstAttribute="leading" secondItem="MbE-nN-Yu1" secondAttribute="trailing" constant="5" id="3d1-Ix-fZc"/>
-                                                <constraint firstItem="mLy-3m-NZx" firstAttribute="top" secondItem="Lwh-nd-Dz6" secondAttribute="topMargin" constant="8" id="B1A-Wi-8qi"/>
                                                 <constraint firstItem="jUG-g4-b5a" firstAttribute="top" secondItem="Lwh-nd-Dz6" secondAttribute="topMargin" constant="4" id="Xxx-Pv-bPR"/>
                                                 <constraint firstAttribute="bottom" secondItem="MbE-nN-Yu1" secondAttribute="bottom" constant="2" id="bBI-bI-IkZ"/>
+                                                <constraint firstItem="mLy-3m-NZx" firstAttribute="top" secondItem="Lwh-nd-Dz6" secondAttribute="topMargin" constant="8" id="erB-fX-UsP"/>
                                                 <constraint firstItem="acx-aP-d4c" firstAttribute="top" secondItem="jUG-g4-b5a" secondAttribute="bottom" constant="6" id="h8j-Eq-q5A"/>
+                                                <constraint firstAttribute="trailing" secondItem="mLy-3m-NZx" secondAttribute="trailing" constant="30" id="hc9-vY-sHr"/>
                                                 <constraint firstItem="acx-aP-d4c" firstAttribute="leading" secondItem="MbE-nN-Yu1" secondAttribute="trailing" constant="5" id="lZ1-Ry-AbW"/>
                                                 <constraint firstItem="MbE-nN-Yu1" firstAttribute="leading" secondItem="Lwh-nd-Dz6" secondAttribute="leading" constant="2" id="oMf-2X-hVQ"/>
                                                 <constraint firstItem="MbE-nN-Yu1" firstAttribute="top" secondItem="Lwh-nd-Dz6" secondAttribute="top" constant="2" id="p9x-1L-Zqf"/>
-                                                <constraint firstItem="mLy-3m-NZx" firstAttribute="centerY" secondItem="Lwh-nd-Dz6" secondAttribute="centerY" id="rTf-YM-Zhi"/>
-                                                <constraint firstAttribute="trailing" secondItem="mLy-3m-NZx" secondAttribute="trailing" constant="10" id="yQp-iL-6JL"/>
+                                                <constraint firstItem="mLy-3m-NZx" firstAttribute="centerY" secondItem="Lwh-nd-Dz6" secondAttribute="centerY" id="ppI-ml-ovG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2097,24 +2098,24 @@
                             <view alpha="0.89999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGo-9J-G1o">
                                 <rect key="frame" x="0.0" y="88" width="375" height="132"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozF-jF-MDz">
-                                        <rect key="frame" x="299" y="40" width="46" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO1-Et-i4I">
+                                        <rect key="frame" x="283" y="50" width="72" height="29"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="s1i-7P-oni"/>
+                                            <constraint firstAttribute="height" constant="29" id="tOl-ZR-BpX"/>
+                                            <constraint firstAttribute="width" constant="72" id="vej-AI-blu"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
                                         <state key="normal" title="Follow"/>
                                         <connections>
-                                            <action selector="followButton:" destination="eJR-ev-Yyc" eventType="touchUpInside" id="dyM-TB-6ES"/>
-                                            <action selector="followClicked:" destination="eJR-ev-Yyc" eventType="touchUpInside" id="ZEK-ye-Wzq"/>
+                                            <action selector="followClicked:" destination="eJR-ev-Yyc" eventType="touchUpInside" id="iWY-Ij-M5e"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="132" id="5gE-KH-I3u"/>
-                                    <constraint firstAttribute="trailing" secondItem="ozF-jF-MDz" secondAttribute="trailing" constant="30" id="Td4-mj-ukE"/>
-                                    <constraint firstItem="ozF-jF-MDz" firstAttribute="top" secondItem="WGo-9J-G1o" secondAttribute="top" constant="40" id="z1S-zA-JhG"/>
+                                    <constraint firstItem="hO1-Et-i4I" firstAttribute="top" secondItem="WGo-9J-G1o" secondAttribute="top" constant="50" id="lpM-GS-jhl"/>
+                                    <constraint firstAttribute="trailing" secondItem="hO1-Et-i4I" secondAttribute="trailing" constant="20" id="mdn-Y2-dD8"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mKI-25-2fZ">
@@ -2255,7 +2256,9 @@
                     <connections>
                         <outlet property="avatar" destination="mKI-25-2fZ" id="Dib-SQ-e8p"/>
                         <outlet property="bio" destination="cMW-xH-aLg" id="u65-dC-8hn"/>
-                        <outlet property="followButton" destination="ozF-jF-MDz" id="j5E-ZW-uwD"/>
+                        <outlet property="followButton" destination="hO1-Et-i4I" id="mDJ-Zn-3Kb"/>
+                        <outlet property="followersLabel" destination="ikX-y6-8uR" id="mNi-Vy-ZJc"/>
+                        <outlet property="followingLabel" destination="Nc3-hs-ZiD" id="xKn-mT-Q4a"/>
                         <outlet property="handle" destination="VIl-7x-sqh" id="f2n-mU-fEk"/>
                         <segue destination="I6y-uK-fti" kind="show" identifier="displayFollower" id="qkO-2N-kq1"/>
                     </connections>
