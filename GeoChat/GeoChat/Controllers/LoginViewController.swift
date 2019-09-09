@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
     var path:DatabaseReference!
 
     var selectedUserProfile: User!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +35,7 @@ class LoginViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { (AuthDataResult, Error) in
             if (Error != nil){
-                let alert = UIAlertController(title: "Error!", message: "Error signing in to this account! Please try again.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Error!", message: Error?.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Continue", style: .default))
                 self.present(alert, animated: true)
             }
@@ -87,7 +86,6 @@ class LoginViewController: UIViewController {
                             self.selectedUserProfile = currentUser
                             print("Loaded information, proceeding to segue")
                             DispatchQueue.main.async {
-                                print("Performing segue")
                                 self.performSegue(withIdentifier: "SignIn", sender: self)
                             }
 
@@ -108,6 +106,10 @@ class LoginViewController: UIViewController {
         if let destination = (segue.destination as? UITabBarController)?.viewControllers!.first! as? MapViewController{
             destination.Profile = selectedUserProfile
 
+        }
+        
+        if let destination = (segue.destination as? UITabBarController)?.viewControllers![2] as? ProfileViewController{
+            destination.userInfo = selectedUserProfile
         }
         
         //if let destinations = (segue.destination as! UITabBarController).viewControllers!.first! as? MapViewController{

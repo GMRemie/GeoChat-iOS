@@ -23,6 +23,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
     
     @IBOutlet weak var bizSwitch: UISwitch!
     
+    @IBOutlet weak var pickImage: UIButton!
     
     var path:DatabaseReference!
     
@@ -38,6 +39,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
         imageView.clipsToBounds = true
         
         path = Database.database().reference()
+        
+        pickImage.layer.cornerRadius = pickImage.bounds.height/2
         
     }
     
@@ -155,4 +158,12 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
     
  
     }
+    
+    // Keyboard pushing up
+    
+    
+    
+    
+    
+    
 }

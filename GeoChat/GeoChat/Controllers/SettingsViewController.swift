@@ -20,6 +20,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
+    @IBOutlet weak var uploadButton: UIButton!
     var imagePicker:UIImagePickerController!
     var path:DatabaseReference!
     var changedPic = false
@@ -29,7 +30,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
         imageView.layer.cornerRadius = 64
         saveButton.roundCorners()
-
+        
+        
+        uploadButton.layer.cornerRadius = uploadButton.bounds.height/2
         
         path = Database.database().reference()
         loadOriginalInformation()
@@ -41,6 +44,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
         return true
     }
     
+    
+    @IBAction func backClicked(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true)
+    }
     
     func loadOriginalInformation(){
         let curUser = Auth.auth().currentUser!
@@ -137,6 +144,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
                     let alert = UIAlertController(title: "Error!", message: "Error changing email address!", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Continue", style: .default))
                     self.present(alert, animated: true)
+                    return
                 }
             }
             
