@@ -840,7 +840,7 @@
         <!--Notifications-->
         <scene sceneID="H8M-tL-2V1">
             <objects>
-                <viewController id="Cd7-x7-yrG" sceneMemberID="viewController">
+                <viewController id="Cd7-x7-yrG" customClass="NotificationViewController" customModule="GeoChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="38E-8g-MBC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -899,7 +899,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="S5a-7W-n2B">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notifyFriend" rowHeight="70" id="S5a-7W-n2B" customClass="NotificationTableViewCell" customModule="GeoChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="98" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S5a-7W-n2B" id="Lwh-nd-Dz6">
@@ -956,9 +956,24 @@
                                                 <constraint firstItem="MbE-nN-Yu1" firstAttribute="top" secondItem="Lwh-nd-Dz6" secondAttribute="top" constant="2" id="p9x-1L-Zqf"/>
                                                 <constraint firstItem="mLy-3m-NZx" firstAttribute="centerY" secondItem="Lwh-nd-Dz6" secondAttribute="centerY" id="ppI-ml-ovG"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="acx-aP-d4c"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatar" destination="MbE-nN-Yu1" id="E3C-zY-mzT"/>
+                                            <outlet property="detailButton" destination="mLy-3m-NZx" id="cga-jg-n7F"/>
+                                            <outlet property="handle" destination="jUG-g4-b5a" id="d5j-41-t4E"/>
+                                            <outlet property="timePosted" destination="acx-aP-d4c" id="CU8-xQ-If6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Cd7-x7-yrG" id="2hf-AF-ppK"/>
+                                    <outlet property="delegate" destination="Cd7-x7-yrG" id="HYk-jj-Qwf"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -974,6 +989,9 @@
                         <viewLayoutGuide key="safeArea" id="C7Q-kE-Sfj"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notifications" image="notification" id="pE1-Bb-uso"/>
+                    <connections>
+                        <outlet property="tableView" destination="fHZ-KA-UYv" id="xC4-ba-Xkq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duh-eS-9hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

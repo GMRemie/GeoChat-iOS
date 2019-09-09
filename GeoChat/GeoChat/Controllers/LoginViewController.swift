@@ -116,6 +116,9 @@ class LoginViewController: UIViewController {
             destination.curUser = selectedUserProfile
         }
         
+        if let destination = (segue.destination as? UITabBarController)?.viewControllers![3] as? NotificationViewController{
+            destination.curUser = selectedUserProfile
+        }
         //if let destinations = (segue.destination as! UITabBarController).viewControllers!.first! as? MapViewController{
 
       //  }

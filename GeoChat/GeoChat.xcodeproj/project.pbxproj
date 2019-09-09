@@ -44,6 +44,8 @@
 		D4594A552326581400C95F72 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A542326581400C95F72 /* SearchResultTableViewCell.swift */; };
 		D4594A5723266ECC00C95F72 /* PublicProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A5623266ECB00C95F72 /* PublicProfileViewController.swift */; };
 		D4594A592326BD2900C95F72 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A582326BD2900C95F72 /* Notification.swift */; };
+		D4594A5B2326CE7200C95F72 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A5A2326CE7200C95F72 /* NotificationViewController.swift */; };
+		D4594A5D2326F71B00C95F72 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A5C2326F71B00C95F72 /* NotificationTableViewCell.swift */; };
 		D4813D7F2317FCE30005A512 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D7E2317FCE30005A512 /* MapViewController.swift */; };
 		D4813D8123182B910005A512 /* GeoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D8023182B910005A512 /* GeoMessage.swift */; };
 		D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D82231847BB0005A512 /* CreatePostViewController.swift */; };
@@ -96,6 +98,8 @@
 		D4594A542326581400C95F72 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		D4594A5623266ECB00C95F72 /* PublicProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProfileViewController.swift; sourceTree = "<group>"; };
 		D4594A582326BD2900C95F72 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		D4594A5A2326CE7200C95F72 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		D4594A5C2326F71B00C95F72 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		D4813D7E2317FCE30005A512 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D4813D8023182B910005A512 /* GeoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMessage.swift; sourceTree = "<group>"; };
 		D4813D82231847BB0005A512 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 				D447B3202323700E001E78DA /* SearchViewController.swift */,
 				D4594A5123263EF400C95F72 /* ProfileViewController.swift */,
 				D4594A5623266ECB00C95F72 /* PublicProfileViewController.swift */,
+				D4594A5A2326CE7200C95F72 /* NotificationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				D4594A542326581400C95F72 /* SearchResultTableViewCell.swift */,
+				D4594A5C2326F71B00C95F72 /* NotificationTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -398,9 +404,11 @@
 				D4813D8923189C9E0005A512 /* SettingsViewController.swift in Sources */,
 				D4594A552326581400C95F72 /* SearchResultTableViewCell.swift in Sources */,
 				D4043E6B23154E9D004338B4 /* GradientExtension.swift in Sources */,
+				D4594A5B2326CE7200C95F72 /* NotificationViewController.swift in Sources */,
 				D4043E782316C399004338B4 /* LoginViewController.swift in Sources */,
 				D4043E3123151757004338B4 /* AppDelegate.swift in Sources */,
 				D4043E71231659E2004338B4 /* RegistrationViewController.swift in Sources */,
+				D4594A5D2326F71B00C95F72 /* NotificationTableViewCell.swift in Sources */,
 				D4E1C3482316D06B0049A39D /* User.swift in Sources */,
 				D4813D872318863C0005A512 /* MessageContainer.swift in Sources */,
 				D4594A592326BD2900C95F72 /* Notification.swift in Sources */,

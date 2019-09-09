@@ -138,14 +138,15 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
             }
         }
         
+
+       
         if email.count > 0 {
-            curUser.updateEmail(to: email) { (Error) in
-                if (Error != nil ){
-                    let alert = UIAlertController(title: "Error!", message: "Error changing email address!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Continue", style: .default))
-                    self.present(alert, animated: true)
-                    return
-                }
+            if (validateEmail(enteredEmail: emailText.text!)){
+                Auth.auth().currentUser?.updateEmail(to: emailText.text!)
+            }else{
+                let alert = UIAlertController(title: "Error!", message: "Poorly formatted email!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Continue", style: .default))
+                present(alert, animated: true)
             }
             
         }
@@ -187,6 +188,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
         let alert = UIAlertController(title: "Success!", message: "Your account information has been updated!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default))
         self.present(alert, animated: true)
+        
+    }
+    
+    func validateEmail(enteredEmail:String) -> Bool {
+        
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluate(with: enteredEmail)
         
     }
     
