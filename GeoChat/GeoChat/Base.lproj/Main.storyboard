@@ -285,9 +285,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" textContentType="new-password">
-                                                    <passwordRules key="passwordRules" passwordRulesDescriptor="Passwords must be at least 6 characters long"/>
-                                                </textInputTraits>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="iHg-h9-ea5" id="vv3-fp-k6m"/>
                                                 </connections>
@@ -3281,6 +3279,6 @@
         <segue reference="TfW-5c-1NH"/>
         <segue reference="w9S-WM-AFh"/>
         <segue reference="vD6-ob-5Cn"/>
-        <segue reference="Ayk-Lc-KI0"/>
+        <segue reference="qjW-yA-GC8"/>
     </inferredMetricsTieBreakers>
 </document>
