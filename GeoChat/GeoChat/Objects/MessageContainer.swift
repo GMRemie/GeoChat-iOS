@@ -37,7 +37,9 @@ struct MessageContainer{
             }
             
             let loaded = UIImage(data: Data!)
-            image.image = loaded
+            DispatchQueue.main.async {
+                image.image = loaded
+            }
         }
         task.resume()
     }
