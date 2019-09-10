@@ -28,6 +28,8 @@ class PublicProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        followersLabel.text = "0"
+        followingLabel.text = "0"
         
         handle.text = userInfo.handle!
         

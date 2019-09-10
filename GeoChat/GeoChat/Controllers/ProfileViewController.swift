@@ -31,6 +31,9 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         handleLabel.text = "@\(userInfo!.handle!)"
         profilePicture.image = userInfo.avatar
+        followingLabel.text = "0"
+        followersLabel.text = "0"
+        photosCount.text = "0"
         
         
         profilePicture.layer.cornerRadius = profilePicture.bounds.height/2
