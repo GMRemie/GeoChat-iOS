@@ -46,6 +46,12 @@ class PublicProfileViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ReportViewController{
+            destination.reported = userInfo
+            destination.reporter = curUser
+        }
+    }
     
     
     
@@ -155,6 +161,7 @@ class PublicProfileViewController: UIViewController {
         
     }
     @IBAction func reportClicked(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "reportUser", sender: self)
     }
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {

@@ -1118,7 +1118,7 @@
                                 <rect key="frame" x="30" y="418" width="315" height="49"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1H8-hI-OvB">
-                                        <rect key="frame" x="0.0" y="25" width="57" height="20"/>
+                                        <rect key="frame" x="0.0" y="25" width="52.666666666666664" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="LaU-4r-lpS"/>
                                         </constraints>
@@ -1134,7 +1134,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="bio here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yDm-vj-Yzw">
-                                        <rect key="frame" x="67" y="25" width="248" height="20"/>
+                                        <rect key="frame" x="62.666666666666671" y="25" width="252.33333333333331" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Ilo-gr-Yl8"/>
                                         </constraints>
@@ -1162,7 +1162,7 @@
                                 <rect key="frame" x="30" y="487" width="315" height="48.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Handle @" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o56-iL-iNf">
-                                        <rect key="frame" x="0.0" y="24.666666666666686" width="70" height="20"/>
+                                        <rect key="frame" x="0.0" y="24.666666666666686" width="59.666666666666664" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="4mL-gH-2eA"/>
                                         </constraints>
@@ -1178,7 +1178,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mYH-wl-fkC">
-                                        <rect key="frame" x="80" y="24.666666666666686" width="235" height="20"/>
+                                        <rect key="frame" x="69.666666666666671" y="24.666666666666686" width="245.33333333333331" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Ore-8T-wTP"/>
                                         </constraints>
@@ -1206,7 +1206,7 @@
                                 <rect key="frame" x="30" y="555.66666666666663" width="315" height="48.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWt-zM-OdS">
-                                        <rect key="frame" x="0.0" y="24.666666666666742" width="38.333333333333336" height="20"/>
+                                        <rect key="frame" x="0.0" y="24.666666666666742" width="34.333333333333336" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="bhe-IN-QaS"/>
                                         </constraints>
@@ -1222,7 +1222,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LVA-KS-EHt">
-                                        <rect key="frame" x="48.333333333333343" y="24.666666666666742" width="266.66666666666663" height="20"/>
+                                        <rect key="frame" x="44.333333333333343" y="24.666666666666742" width="270.66666666666663" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="KVu-6g-fht"/>
                                         </constraints>
@@ -1250,7 +1250,7 @@
                                 <rect key="frame" x="30" y="624.33333333333337" width="315" height="48.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrI-Jf-LwL">
-                                        <rect key="frame" x="0.0" y="24.666666666666629" width="69" height="20"/>
+                                        <rect key="frame" x="0.0" y="24.666666666666629" width="62" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="VXA-gi-7vx"/>
                                         </constraints>
@@ -1266,7 +1266,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="awP-gS-3qX">
-                                        <rect key="frame" x="79" y="24.666666666666629" width="236" height="20"/>
+                                        <rect key="frame" x="72" y="24.666666666666629" width="243" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="FTn-MP-obT"/>
                                         </constraints>
@@ -1309,14 +1309,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_forest" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-Kg-vM9">
-                                <rect key="frame" x="122" y="234" width="128" height="128"/>
+                                <rect key="frame" x="122" y="224.66666666666663" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="4tn-U1-LTf"/>
                                     <constraint firstAttribute="height" constant="128" id="c4T-uX-JkG"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iW9-GU-9IX">
-                                <rect key="frame" x="231" y="334" width="34" height="34"/>
+                                <rect key="frame" x="231" y="324.66666666666669" width="34" height="34"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="34" id="DEh-kw-8rE"/>
@@ -1341,7 +1341,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-2k-T0a">
-                                <rect key="frame" x="30" y="118" width="315" height="56"/>
+                                <rect key="frame" x="30" y="118.00000000000001" width="315" height="46.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1707,6 +1707,9 @@
                                 <rect key="frame" x="273" y="74" width="72" height="29"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
                                 <state key="normal" title="Report User"/>
+                                <connections>
+                                    <segue destination="g5K-7Q-8OB" kind="show" id="yvf-aN-uPs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1740,10 +1743,10 @@
             </objects>
             <point key="canvasLocation" x="4244" y="814"/>
         </scene>
-        <!--View Controller-->
+        <!--Report View Controller-->
         <scene sceneID="bZS-jQ-7j0">
             <objects>
-                <viewController id="g5K-7Q-8OB" sceneMemberID="viewController">
+                <viewController id="g5K-7Q-8OB" customClass="ReportViewController" customModule="GeoChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AaM-6c-MSC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1769,7 +1772,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reprot Reason here" translatesAutoresizingMaskIntoConstraints="NO" id="2aL-lc-PoM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aL-lc-PoM">
                                 <rect key="frame" x="30" y="217" width="315" height="243.66666666666663"/>
                                 <color key="backgroundColor" red="0.91373163461685181" green="0.91371452808380127" blue="0.91372615098953247" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
@@ -1791,6 +1794,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonCloseClicked:" destination="ETu-Np-jnn" eventType="touchUpInside" id="Vyh-hI-SMk"/>
+                                    <action selector="cancelClicked:" destination="g5K-7Q-8OB" eventType="touchUpInside" id="8Gh-rd-mKS"/>
                                     <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BYq-Ir-K34"/>
                                     <action selector="sendClicked:" destination="tR0-dw-HZg" eventType="touchUpInside" id="Ghl-EN-zB6"/>
                                     <action selector="signUpClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rye-Li-2Em"/>
@@ -1809,6 +1813,7 @@
                                 <connections>
                                     <action selector="buttonCloseClicked:" destination="ETu-Np-jnn" eventType="touchUpInside" id="ucD-Kw-Oc5"/>
                                     <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z06-ZF-yMl"/>
+                                    <action selector="reportSent:" destination="g5K-7Q-8OB" eventType="touchUpInside" id="jyq-mU-PPC"/>
                                     <action selector="sendClicked:" destination="tR0-dw-HZg" eventType="touchUpInside" id="8xk-Nf-fkR"/>
                                     <action selector="signUpClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ico-xx-UyR"/>
                                     <action selector="signupClicked:" destination="iHg-h9-ea5" eventType="touchUpInside" id="IoK-gs-gpT"/>
@@ -1845,6 +1850,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t44-cc-sZJ"/>
                     </view>
+                    <connections>
+                        <outlet property="reportReason" destination="2aL-lc-PoM" id="Dot-3z-K4E"/>
+                        <outlet property="reportedHandle" destination="yza-6U-byN" id="dnn-Pb-k2W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxv-xc-mbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2113,7 +2122,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-Kf-71h">
-                                                    <rect key="frame" x="628" y="13.333333333333332" width="91" height="31.999999999999996"/>
+                                                    <rect key="frame" x="279" y="13.333333333333332" width="91" height="31.999999999999996"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
                                                     <state key="normal" title="ButtonDetail"/>
                                                 </button>
@@ -2306,6 +2315,7 @@
                                 <state key="normal" title="Report User"/>
                                 <connections>
                                     <action selector="reportClicked:" destination="eJR-ev-Yyc" eventType="touchUpInside" id="Aeb-VL-C6V"/>
+                                    <segue destination="g5K-7Q-8OB" kind="show" identifier="reportUser" id="rZP-L6-Yrb"/>
                                 </connections>
                             </button>
                             <navigationBar opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UeS-EC-0kq">
@@ -3277,6 +3287,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TfW-5c-1NH"/>
+        <segue reference="rZP-L6-Yrb"/>
         <segue reference="w9S-WM-AFh"/>
         <segue reference="vD6-ob-5Cn"/>
         <segue reference="qjW-yA-GC8"/>

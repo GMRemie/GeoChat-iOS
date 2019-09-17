@@ -58,6 +58,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         if let destination = segue.destination as? MessageViewController{
             let msgData = sender as! MessageContainer
             destination.msg = msgData
+            destination.currentUser = Profile
         }
     }
     

@@ -39,6 +39,9 @@
 		D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E732316606C004338B4 /* UIButtonExtension.swift */; };
 		D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E75231668D2004338B4 /* FirebaseHelper.swift */; };
 		D4043E782316C399004338B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E772316C398004338B4 /* LoginViewController.swift */; };
+		D43741A5232B0B7500287B91 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43741A4232B0B7500287B91 /* ReportViewController.swift */; };
+		D43741A7232B141000287B91 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43741A6232B141000287B91 /* Report.swift */; };
+		D43741A9232B154800287B91 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43741A8232B154800287B91 /* Codable.swift */; };
 		D447B3212323700E001E78DA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447B3202323700E001E78DA /* SearchViewController.swift */; };
 		D4594A5223263EF600C95F72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A5123263EF400C95F72 /* ProfileViewController.swift */; };
 		D4594A552326581400C95F72 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4594A542326581400C95F72 /* SearchResultTableViewCell.swift */; };
@@ -95,6 +98,9 @@
 		D4043E732316606C004338B4 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		D4043E75231668D2004338B4 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		D4043E772316C398004338B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D43741A4232B0B7500287B91 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		D43741A6232B141000287B91 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		D43741A8232B154800287B91 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		D447B3202323700E001E78DA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D4594A5123263EF400C95F72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D4594A542326581400C95F72 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 				D4594A5623266ECB00C95F72 /* PublicProfileViewController.swift */,
 				D4594A5A2326CE7200C95F72 /* NotificationViewController.swift */,
 				D4594A5E2327095300C95F72 /* SelectUsersViewController.swift */,
+				D43741A4232B0B7500287B91 /* ReportViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +230,7 @@
 			children = (
 				D4043E6A23154E9D004338B4 /* GradientExtension.swift */,
 				D4043E732316606C004338B4 /* UIButtonExtension.swift */,
+				D43741A8232B154800287B91 /* Codable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 				D4813D8023182B910005A512 /* GeoMessage.swift */,
 				D4813D862318863C0005A512 /* MessageContainer.swift */,
 				D4594A582326BD2900C95F72 /* Notification.swift */,
+				D43741A6232B141000287B91 /* Report.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -412,14 +421,17 @@
 				D4813D8923189C9E0005A512 /* SettingsViewController.swift in Sources */,
 				D4594A552326581400C95F72 /* SearchResultTableViewCell.swift in Sources */,
 				D4043E6B23154E9D004338B4 /* GradientExtension.swift in Sources */,
+				D43741A5232B0B7500287B91 /* ReportViewController.swift in Sources */,
 				D4594A5B2326CE7200C95F72 /* NotificationViewController.swift in Sources */,
 				D4043E782316C399004338B4 /* LoginViewController.swift in Sources */,
 				D4043E3123151757004338B4 /* AppDelegate.swift in Sources */,
+				D43741A9232B154800287B91 /* Codable.swift in Sources */,
 				D4043E71231659E2004338B4 /* RegistrationViewController.swift in Sources */,
 				D4594A5D2326F71B00C95F72 /* NotificationTableViewCell.swift in Sources */,
 				D4E1C3482316D06B0049A39D /* User.swift in Sources */,
 				D4813D872318863C0005A512 /* MessageContainer.swift in Sources */,
 				D4594A592326BD2900C95F72 /* Notification.swift in Sources */,
+				D43741A7232B141000287B91 /* Report.swift in Sources */,
 				D4594A5723266ECC00C95F72 /* PublicProfileViewController.swift in Sources */,
 				D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */,
 				D4813D8123182B910005A512 /* GeoMessage.swift in Sources */,

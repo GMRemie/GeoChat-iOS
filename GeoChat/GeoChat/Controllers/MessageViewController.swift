@@ -17,6 +17,8 @@ class MessageViewController: UIViewController {
     @IBOutlet weak var buttonClose: UIButton!
     
     var msg: MessageContainer!
+    var currentUser: User!
+    var reportedUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,9 @@ class MessageViewController: UIViewController {
         captionText.text = msg.getCaption()
         
         msg.getImage(image: imageView)
+        
+        print("Testing view ", msg.msg.id )
+        
 
     }
     
@@ -35,5 +40,12 @@ class MessageViewController: UIViewController {
         
         
         self.dismiss(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ReportViewController{
+            destination.reported = User(_email: "blank", _id: msg!.msg.author!, _handle: msg!.handle, _avatar: nil)
+            destination.reporter = currentUser
+        }
     }
 }
