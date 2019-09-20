@@ -15,8 +15,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var mapkit: MKMapView!
+    @IBOutlet weak var bizButton: UIButton!
     
     var Profile:User!
+    var BusinessAccount = false
     let locationmanager = CLLocationManager()
     
     var path:DatabaseReference!
@@ -31,9 +33,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        BusinessAccount = Profile.bizAccount
         
         createButton.backgroundColor = Colors.yellow
         createButton.layer.cornerRadius = 40
+        
+        if (BusinessAccount){
+            bizButton.backgroundColor = Colors.yellow
+            bizButton.layer.cornerRadius = 40
+            bizButton.isHidden = false
+        }else{
+            bizButton.isHidden = true
+        }
         
         checkLocationServices()
         
@@ -45,6 +56,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func setupLocationManager(){
         locationmanager.delegate = self
         locationmanager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    // Business Marker
+    
+    @IBAction func bizMarkerClick(_ sender: UIButton) {
+        let option = UIAlertController(title: "Business Manager", message: "What would you like to do?", preferredStyle: .alert)
+        option.addAction(UIAlertAction(title: "Marker Stats", style: .default, handler: { (UIAlertAction) in
+            // later
+        }))
+        option.addAction(UIAlertAction(title: "Create Marker", style: .default, handler: { (UIAlertAction) in
+            self.performSegue(withIdentifier: "createBizMarker", sender: self)
+        }))
     }
     
     

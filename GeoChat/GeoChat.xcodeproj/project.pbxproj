@@ -57,6 +57,7 @@
 		D4813D852318854C0005A512 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D842318854C0005A512 /* MessageViewController.swift */; };
 		D4813D872318863C0005A512 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D862318863C0005A512 /* MessageContainer.swift */; };
 		D4813D8923189C9E0005A512 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D8823189C9E0005A512 /* SettingsViewController.swift */; };
+		D4AE610223349790005F6D81 /* CreateBizPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE610123349790005F6D81 /* CreateBizPostViewController.swift */; };
 		D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */; };
 		D4E1C3482316D06B0049A39D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3472316D06B0049A39D /* User.swift */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,7 @@
 		D4813D842318854C0005A512 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		D4813D862318863C0005A512 /* MessageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		D4813D8823189C9E0005A512 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D4AE610123349790005F6D81 /* CreateBizPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBizPostViewController.swift; sourceTree = "<group>"; };
 		D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		D4E1C3472316D06B0049A39D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +215,7 @@
 				D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */,
 				D4813D7E2317FCE30005A512 /* MapViewController.swift */,
 				D4813D82231847BB0005A512 /* CreatePostViewController.swift */,
+				D4AE610123349790005F6D81 /* CreateBizPostViewController.swift */,
 				D4813D842318854C0005A512 /* MessageViewController.swift */,
 				D4813D8823189C9E0005A512 /* SettingsViewController.swift */,
 				D447B3202323700E001E78DA /* SearchViewController.swift */,
@@ -412,6 +415,7 @@
 				D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */,
 				D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */,
 				D4594A5F2327095300C95F72 /* SelectUsersViewController.swift in Sources */,
+				D4AE610223349790005F6D81 /* CreateBizPostViewController.swift in Sources */,
 				D447B3212323700E001E78DA /* SearchViewController.swift in Sources */,
 				D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */,
 				D4043E3323151757004338B4 /* ViewController.swift in Sources */,

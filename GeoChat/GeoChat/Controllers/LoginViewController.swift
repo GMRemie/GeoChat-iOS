@@ -52,10 +52,14 @@ class LoginViewController: UIViewController {
                 // get handle and other user information later on in beta states
                 let userInfoPath = self.path.child("users").child(aUser.uid)
                 var userHandle: String!
+                var bizAccount: Bool?
                 userInfoPath.observeSingleEvent(of: .value, with: { (DataSnapshot) in
                     if let snap = DataSnapshot.value as? NSDictionary{
                         userHandle = snap["handle"] as! String
-                        print(userHandle)
+                        guard let biz = snap["business"] as? Bool else{
+                            return
+                        }
+                        bizAccount = biz
                     }
                 })
                 
@@ -83,6 +87,9 @@ class LoginViewController: UIViewController {
                             
                             let avatar = UIImage(data: Data!, scale: 0.5)
                             let currentUser = User(_email: Auth.auth().currentUser!.email!, _id: Auth.auth().currentUser!.uid, _handle: userHandle, _avatar: avatar)
+                            if (bizAccount != nil){
+                                currentUser.bizAccount = bizAccount!
+                            }
                             self.selectedUserProfile = currentUser
                             print("Loaded information, proceeding to segue")
                             DispatchQueue.main.async {
@@ -105,7 +112,6 @@ class LoginViewController: UIViewController {
         
         if let destination = (segue.destination as? UITabBarController)?.viewControllers!.first! as? MapViewController{
             destination.Profile = selectedUserProfile
-
         }
         
         if let destination = (segue.destination as? UITabBarController)?.viewControllers![2] as? ProfileViewController{

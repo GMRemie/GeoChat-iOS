@@ -640,16 +640,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGk-bQ-wpD" userLabel="BizButton">
+                                <rect key="frame" x="285" y="549" width="80" height="80"/>
+                                <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="52"/>
+                                <state key="normal" title="$">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="bizMarkerClick:" destination="VXr-ke-RHC" eventType="touchUpInside" id="IFq-nH-UwF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="i5a-Kz-yGZ" firstAttribute="trailing" secondItem="bjf-dh-OJE" secondAttribute="trailing" constant="10" id="1il-Ot-6wL"/>
                             <constraint firstItem="i5a-Kz-yGZ" firstAttribute="bottom" secondItem="bjf-dh-OJE" secondAttribute="bottom" constant="10" id="2f6-7s-mUh"/>
+                            <constraint firstItem="vGk-bQ-wpD" firstAttribute="height" secondItem="bjf-dh-OJE" secondAttribute="height" id="4pc-qu-o5j"/>
+                            <constraint firstItem="bjf-dh-OJE" firstAttribute="top" secondItem="vGk-bQ-wpD" secondAttribute="bottom" constant="10" id="7w8-E8-rcZ"/>
                             <constraint firstItem="jBN-Tb-QTt" firstAttribute="leading" secondItem="i5a-Kz-yGZ" secondAttribute="leading" constant="16" id="8aJ-AQ-dTi"/>
+                            <constraint firstItem="vGk-bQ-wpD" firstAttribute="width" secondItem="bjf-dh-OJE" secondAttribute="width" id="9XX-ft-syT"/>
                             <constraint firstItem="i5a-Kz-yGZ" firstAttribute="trailing" secondItem="bqa-8N-ecG" secondAttribute="trailing" id="MZg-Zn-DBI"/>
                             <constraint firstItem="jBN-Tb-QTt" firstAttribute="top" secondItem="i5a-Kz-yGZ" secondAttribute="top" multiplier="1.5" id="Mwj-L0-dS8"/>
                             <constraint firstItem="bqa-8N-ecG" firstAttribute="top" secondItem="jBN-Tb-QTt" secondAttribute="bottom" constant="16" id="O4o-sv-wJQ"/>
                             <constraint firstItem="i5a-Kz-yGZ" firstAttribute="trailing" secondItem="jBN-Tb-QTt" secondAttribute="trailing" constant="16" id="Sxe-ZW-tue"/>
+                            <constraint firstItem="i5a-Kz-yGZ" firstAttribute="trailing" secondItem="vGk-bQ-wpD" secondAttribute="trailing" constant="10" id="ayq-Cc-Eem"/>
                             <constraint firstItem="i5a-Kz-yGZ" firstAttribute="bottom" secondItem="bqa-8N-ecG" secondAttribute="bottom" id="l8R-ls-ukm"/>
                             <constraint firstItem="bqa-8N-ecG" firstAttribute="leading" secondItem="i5a-Kz-yGZ" secondAttribute="leading" id="pLq-hK-Ufg"/>
                         </constraints>
@@ -657,10 +671,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="mapIcon" selectedImage="mapIcon" id="uAj-5r-NXE"/>
                     <connections>
+                        <outlet property="bizButton" destination="vGk-bQ-wpD" id="JNs-Vj-Ndi"/>
                         <outlet property="createButton" destination="bjf-dh-OJE" id="7C9-HL-LbL"/>
                         <outlet property="mapkit" destination="bqa-8N-ecG" id="CAm-bw-icP"/>
                         <segue destination="tR0-dw-HZg" kind="presentation" identifier="createPost" modalTransitionStyle="flipHorizontal" id="w9S-WM-AFh"/>
                         <segue destination="ETu-Np-jnn" kind="presentation" identifier="viewMessage" modalTransitionStyle="flipHorizontal" id="1r1-5L-b2g"/>
+                        <segue destination="Ou3-aF-QXk" kind="show" identifier="createBizMarker" id="in9-T0-KQx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3N-O8-pTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2562,7 +2578,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQq-RA-RR2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3225" y="1617"/>
+            <point key="canvasLocation" x="3225" y="1588"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hJj-Lj-kxV">
+            <objects>
+                <viewController id="khc-iX-y6B" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yMj-IQ-3if">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yOR-Kc-2IK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F9C-n2-hMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3977" y="1586"/>
         </scene>
         <!--Item-->
         <scene sceneID="BiH-vC-FlK">
@@ -2658,7 +2689,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IT-sP-yzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2218.4000000000001" y="1669.9507389162561"/>
+            <point key="canvasLocation" x="-2289" y="1668"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1kA-Jb-zEA">
@@ -2914,7 +2945,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELz-jb-SLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1537" y="1668"/>
+            <point key="canvasLocation" x="-1546" y="1668"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Ke4-Ar-lmB">
@@ -3111,7 +3142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="924-xP-zqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2218.4000000000001" y="2350.4926108374384"/>
+            <point key="canvasLocation" x="-2226" y="2345"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DnU-gE-w3e">
