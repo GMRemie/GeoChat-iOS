@@ -65,7 +65,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBAction func bizMarkerClick(_ sender: UIButton) {
         let option = UIAlertController(title: "Business Manager", message: "What would you like to do?", preferredStyle: .alert)
         option.addAction(UIAlertAction(title: "Marker Stats", style: .default, handler: { (UIAlertAction) in
-            // later
+            self.performSegue(withIdentifier: "markerStats", sender: self)
         }))
         option.addAction(UIAlertAction(title: "Create Marker", style: .default, handler: { (UIAlertAction) in
             self.performSegue(withIdentifier: "createBizMarker", sender: self)
@@ -89,6 +89,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             let msgData = sender as! MessageContainer
             destination.msg = msgData
             destination.currentUser = Profile
+        }
+        if let destination = segue.destination as? MarkerStatsViewController{
+            destination.owner = Profile
         }
     }
     
@@ -172,20 +175,40 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                             // not discovered
                         }else{
                             if (author != self.Profile.uniqueID){
-                                self.monitorAndRegisterMessage(msg: msg)
-                                
+                                // Possibly a business message that expire
+                                if (msg.biz){
+                                    // Check expiration date
+                                    let dateformatter = DateFormatter()
+                                    dateformatter.dateStyle = DateFormatter.Style.short
+                                    dateformatter.timeStyle = DateFormatter.Style.short
+                                    let posted = dateformatter.date(from: date)
+                                    let totalDays = Date().days(sinceDate:posted!)
+                                    switch msg.exp{
+                                    case 0:
+                                        if (totalDays! < 7){
+                                            self.monitorAndRegisterMessage(msg: msg)
+                                        }
+                                        break
+                                    case 1:
+                                        if (totalDays! < 30){
+                                            self.monitorAndRegisterMessage(msg: msg)
+                                        }
+                                        break
+                                    case 2:
+                                        if (totalDays! < 365){
+                                            self.monitorAndRegisterMessage(msg: msg)
+                                        }
+                                        break
+                                    default:
+                                        // do nothing
+                                        break
+                                    }
+                                }else{
+                                    self.monitorAndRegisterMessage(msg: msg)
+                                }
                             }
                         }
-                        // Check expiration date
-                        let dateformatter = DateFormatter()
-                        dateformatter.dateFormat = "MM/dd/yy h:mm a Z”
-                        let posted = dateformatter.date(from: msg.date)
-                        
-                       
-                        
-                        
-                        
-                        
+
                     }
                 }
             }
@@ -209,12 +232,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 region.notifyOnExit = false
                 
                 let circle = MKCircle(center: msg.coordinate, radius: 100)
-                //msg.subtitle = "Business Marker"
+               
                 mapkit.addOverlay(circle)
                 mapkit.addAnnotation(msg)
-                
-                
-                
                 
                 
                 locationmanager.startMonitoring(for: region)
@@ -276,26 +296,32 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             if let snap = DataSnapshot.value as? NSDictionary{
                 let handle = snap["handle"] as! String
                 let msgContainer = MessageContainer.init(msg: msg, handle: handle)
-                
-                let userPath = self.path.child("users").child(self.Profile.uniqueID).child("discovered")
+                if (!msg.biz){
+                    let userPath = self.path.child("users").child(self.Profile.uniqueID).child("discovered")
 
-                userPath.child(msgContainer.msg.id).setValue("Discovered")
-            
-                self.locationmanager.stopMonitoring(for: region)
+                    userPath.child(msgContainer.msg.id).setValue("Discovered")
                 
-                for mark in self.mapkit.annotations{
-                    if (mark.coordinate.latitude == msgContainer.msg.coordinate.latitude && mark.coordinate.longitude == msgContainer.msg.coordinate.longitude){
-                        self.mapkit.removeAnnotation(mark)
+                    self.locationmanager.stopMonitoring(for: region)
+                    
+                    for mark in self.mapkit.annotations{
+                        if (mark.coordinate.latitude == msgContainer.msg.coordinate.latitude && mark.coordinate.longitude == msgContainer.msg.coordinate.longitude){
+                            self.mapkit.removeAnnotation(mark)
+                        }
                     }
-                }
-                
-                for overlay in self.mapkit.overlays{
-                    if (overlay.coordinate.latitude == msgContainer.msg.coordinate.latitude && overlay.coordinate.longitude == msgContainer.msg.coordinate.longitude){
-                        self.mapkit.removeOverlay(overlay)
+                    
+                    for overlay in self.mapkit.overlays{
+                        if (overlay.coordinate.latitude == msgContainer.msg.coordinate.latitude && overlay.coordinate.longitude == msgContainer.msg.coordinate.longitude){
+                            self.mapkit.removeOverlay(overlay)
+                        }
                     }
+                    self.performSegue(withIdentifier: "viewMessage", sender: msgContainer)
+
+                }else{
+                    // Update business marker discovery count
+                    let bizMarkerPath = self.path.child("public").child(identifier).child("discoveries")
+                    bizMarkerPath.childByAutoId().setValue(self.Profile.uniqueID)
+                    self.performSegue(withIdentifier: "viewMessage", sender: msgContainer)
                 }
-                
-                self.performSegue(withIdentifier: "viewMessage", sender: msgContainer)
             }
         }
         
@@ -321,6 +347,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     // this is where we will customize our marker for Business markers
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
         guard let circleOverlay = overlay as? MKCircle else { return MKOverlayRenderer() }
         let circleRenderer = MKCircleRenderer(circle: circleOverlay)
         circleRenderer.strokeColor = Colors.blue

@@ -63,6 +63,8 @@
 		D4AE610C2334AECA005F6D81 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE610B2334AECA005F6D81 /* IAPService.swift */; };
 		D4AE610E2334BA1B005F6D81 /* UserResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE610D2334BA1B005F6D81 /* UserResultsViewController.swift */; };
 		D4AE611223353DBC005F6D81 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611123353DBC005F6D81 /* DateExtension.swift */; };
+		D4AE611423354BA3005F6D81 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611323354BA3005F6D81 /* StatsTableViewCell.swift */; };
+		D4AE611623354C82005F6D81 /* MarkerStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611523354C82005F6D81 /* MarkerStatsViewController.swift */; };
 		D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */; };
 		D4E1C3482316D06B0049A39D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3472316D06B0049A39D /* User.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +130,8 @@
 		D4AE610B2334AECA005F6D81 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 		D4AE610D2334BA1B005F6D81 /* UserResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResultsViewController.swift; sourceTree = "<group>"; };
 		D4AE611123353DBC005F6D81 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		D4AE611323354BA3005F6D81 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
+		D4AE611523354C82005F6D81 /* MarkerStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerStatsViewController.swift; sourceTree = "<group>"; };
 		D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		D4E1C3472316D06B0049A39D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +241,7 @@
 				D4594A5E2327095300C95F72 /* SelectUsersViewController.swift */,
 				D43741A4232B0B7500287B91 /* ReportViewController.swift */,
 				D4AE610D2334BA1B005F6D81 /* UserResultsViewController.swift */,
+				D4AE611523354C82005F6D81 /* MarkerStatsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				D4594A542326581400C95F72 /* SearchResultTableViewCell.swift */,
 				D4594A5C2326F71B00C95F72 /* NotificationTableViewCell.swift */,
 				D4594A60232714D800C95F72 /* AddedUserCollectionViewCell.swift */,
+				D4AE611323354BA3005F6D81 /* StatsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,7 +465,9 @@
 				D4594A592326BD2900C95F72 /* Notification.swift in Sources */,
 				D4AE611223353DBC005F6D81 /* DateExtension.swift in Sources */,
 				D43741A7232B141000287B91 /* Report.swift in Sources */,
+				D4AE611623354C82005F6D81 /* MarkerStatsViewController.swift in Sources */,
 				D4594A5723266ECC00C95F72 /* PublicProfileViewController.swift in Sources */,
+				D4AE611423354BA3005F6D81 /* StatsTableViewCell.swift in Sources */,
 				D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */,
 				D4813D8123182B910005A512 /* GeoMessage.swift in Sources */,
 			);

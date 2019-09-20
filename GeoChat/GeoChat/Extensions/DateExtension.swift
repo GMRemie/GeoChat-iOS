@@ -3,7 +3,7 @@
 //  GeoChat
 //
 //  Extension code by Krunal on StackOVerflow
-//
+//  https://stackoverflow.com/questions/24723431/swift-days-between-two-nsdates
 
 import Foundation
 
