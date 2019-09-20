@@ -33,6 +33,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapkit.mapType = .mutedStandard
+        
         BusinessAccount = Profile.bizAccount
         
         createButton.backgroundColor = Colors.yellow
@@ -68,12 +70,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         option.addAction(UIAlertAction(title: "Create Marker", style: .default, handler: { (UIAlertAction) in
             self.performSegue(withIdentifier: "createBizMarker", sender: self)
         }))
+        self.present(option, animated: true)
     }
     
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CreatePostViewController {
+            destination.profile = Profile
+            destination.coordinates = locationmanager.location?.coordinate
+        }
+        if let destination = segue.destination as? CreateBizPostViewController{
             destination.profile = Profile
             destination.coordinates = locationmanager.location?.coordinate
         }
@@ -132,18 +139,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     let url = newValues["url"] as! String
                     let k:String = key as! String
                     let privacy = newValues["privacy"] as! Bool
+                    let date = newValues["date"] as! String
+                    var biz = false
+                    var exp = newValues["exp"] as! Int
+                    guard let bizCheck = newValues["biz"] as? Bool else{
+                        biz = false
+                        return
+                    }
+                    biz = bizCheck
+                    
                     if (privacy){
                         guard let users = newValues["users"] as? [String:String] else{
                             return
                         }
-                        let msg = GeoMessage(title: title, lat: lat, long: long, author: author, caption: caption, url: url, id: k,privacy:false)
+                        let msg = GeoMessage(title: title, lat: lat, long: long, author: author, caption: caption, url: url, id: k,privacy:false, biz: biz, date: date,exp:exp)
                         msg.users = users
                         self.messages[k] = msg
                         if (self.discovered.contains(k)){
                             // already discovered
                         }else{
                             if (author != self.Profile.uniqueID){
-                                print("adding a region")
                                 // Make sure we are a target user!
                                 if ((msg.users?.keys.contains(self.Profile.uniqueID))!){
                                     self.monitorAndRegisterMessage(msg: msg)
@@ -151,15 +166,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                             }
                         }
                     }else{
-                        let msg = GeoMessage(title: title, lat: lat, long: long, author: author, caption: caption, url: url, id: k,privacy:false)
+                        let msg = GeoMessage(title: title, lat: lat, long: long, author: author, caption: caption, url: url, id: k,privacy:false, biz: biz,date:date,exp:exp)
                         self.messages[k] = msg
                         if (self.discovered.contains(k)){
                             // not discovered
                         }else{
                             if (author != self.Profile.uniqueID){
                                 self.monitorAndRegisterMessage(msg: msg)
+                                
                             }
                         }
+                        // Check expiration date
+                        let dateformatter = DateFormatter()
+                        dateformatter.dateFormat = "MM/dd/yy h:mm a Z”
+                        let posted = dateformatter.date(from: msg.date)
+                        
+                       
+                        
+                        
+                        
+                        
                     }
                 }
             }
@@ -183,9 +209,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 region.notifyOnExit = false
                 
                 let circle = MKCircle(center: msg.coordinate, radius: 100)
-            
+                //msg.subtitle = "Business Marker"
                 mapkit.addOverlay(circle)
                 mapkit.addAnnotation(msg)
+                
+                
                 
                 
                 

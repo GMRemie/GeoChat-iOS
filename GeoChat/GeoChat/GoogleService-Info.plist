@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>688750595990-7ove2dtidueogt74n3uo3ujrgruq8mru.apps.googleusercontent.com</string>
+	<string>688750595990-9hkrj7nbuiuf7i57qtul9n7b6t3h9342.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.688750595990-7ove2dtidueogt74n3uo3ujrgruq8mru</string>
+	<string>com.googleusercontent.apps.688750595990-9hkrj7nbuiuf7i57qtul9n7b6t3h9342</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCyCxmp3eIIHKi8t-4v8u62hXlzJiWAPoM</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.storerjf.GeoChat</string>
+	<string>com.josephstorer.geochat</string>
 	<key>PROJECT_ID</key>
 	<string>geochat-822dc</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:688750595990:ios:8fc43d170bcadd20</string>
+	<string>1:688750595990:ios:31ac1a2bd10976240bd7b7</string>
 	<key>DATABASE_URL</key>
 	<string>https://geochat-822dc.firebaseio.com</string>
 </dict>

@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="geochat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eD-F7-kg7">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="67.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="200" width="375" height="56.666666666666686"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="46"/>
                                         <color key="textColor" red="0.99874168634414673" green="0.84124857187271118" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -54,7 +54,7 @@
                                         <size key="shadowOffset" width="3" height="3"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore while connecting with your friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHD-Ky-jJg">
-                                        <rect key="frame" x="62.666666666666657" y="275" width="249.99999999999997" height="17"/>
+                                        <rect key="frame" x="74.333333333333329" y="264" width="226.66666666666669" height="14"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1120,7 +1120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqn-Cf-RRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="329" y="1588"/>
+            <point key="canvasLocation" x="86" y="1586"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="zlU-iP-TCn">
@@ -2098,23 +2098,23 @@
             </objects>
             <point key="canvasLocation" x="1393" y="815"/>
         </scene>
-        <!--Search View Controller-->
+        <!--User Results View Controller-->
         <scene sceneID="Rcc-O5-gUS">
             <objects>
-                <viewController id="I6y-uK-fti" customClass="SearchViewController" customModule="GeoChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="I6y-uK-fti" customClass="UserResultsViewController" customModule="GeoChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fEj-eN-9u8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Enter a users handle to search" translatesAutoresizingMaskIntoConstraints="NO" id="xnb-Mk-q4h">
-                                <rect key="frame" x="0.0" y="156" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="151.33333333333334" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <connections>
-                                    <outlet property="delegate" destination="I6y-uK-fti" id="BmK-I1-BUL"/>
+                                    <outlet property="delegate" destination="I6y-uK-fti" id="Bsr-Ej-XJ4"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n9L-Fv-z2R">
-                                <rect key="frame" x="0.0" y="212" width="375" height="566"/>
+                                <rect key="frame" x="0.0" y="207.33333333333331" width="375" height="570.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchResult" rowHeight="70" id="5cu-Ng-sjr">
@@ -2137,11 +2137,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSO-Kf-71h">
-                                                    <rect key="frame" x="279" y="13.333333333333332" width="91" height="31.999999999999996"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
-                                                    <state key="normal" title="ButtonDetail"/>
-                                                </button>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="POf-sh-kna" userLabel="friends">
                                                     <rect key="frame" x="335" y="14.333333333333332" width="30" height="29.999999999999996"/>
                                                     <constraints>
@@ -2151,7 +2146,6 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QSO-Kf-71h" firstAttribute="trailing" secondItem="nai-OD-w9v" secondAttribute="trailingMargin" constant="10" id="4LX-dN-oEf"/>
                                                 <constraint firstAttribute="trailing" secondItem="POf-sh-kna" secondAttribute="trailing" constant="10" id="Drj-r2-23U"/>
                                                 <constraint firstItem="PZQ-PG-6wv" firstAttribute="leading" secondItem="nai-OD-w9v" secondAttribute="leading" constant="2" id="Grn-3V-s4f"/>
                                                 <constraint firstItem="POf-sh-kna" firstAttribute="centerY" secondItem="nai-OD-w9v" secondAttribute="centerY" id="IqU-Ci-1U1"/>
@@ -2159,7 +2153,6 @@
                                                 <constraint firstItem="PZQ-PG-6wv" firstAttribute="top" secondItem="nai-OD-w9v" secondAttribute="top" constant="2" id="Vkk-FC-MCS"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ZQY-9a-YNw" secondAttribute="bottom" constant="10" id="kK0-R1-HQk"/>
                                                 <constraint firstItem="ZQY-9a-YNw" firstAttribute="leading" secondItem="PZQ-PG-6wv" secondAttribute="trailing" constant="12" id="m4C-hN-RYs"/>
-                                                <constraint firstItem="QSO-Kf-71h" firstAttribute="centerY" secondItem="nai-OD-w9v" secondAttribute="centerY" id="pTi-Lo-wiu"/>
                                                 <constraint firstItem="ZQY-9a-YNw" firstAttribute="top" secondItem="nai-OD-w9v" secondAttribute="topMargin" constant="10" id="uil-pk-Goj"/>
                                             </constraints>
                                             <variation key="default">
@@ -2180,7 +2173,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Handle's followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtf-E8-P6r">
-                                <rect key="frame" x="30" y="108" width="345" height="28"/>
+                                <rect key="frame" x="30" y="108" width="345" height="23.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2206,13 +2199,15 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="0vC-Fk-oMO"/>
                     <connections>
-                        <outlet property="searchBar" destination="xnb-Mk-q4h" id="t4C-am-a7W"/>
+                        <outlet property="lblHeader" destination="Xtf-E8-P6r" id="W5v-aM-Qxp"/>
+                        <outlet property="searchBar" destination="xnb-Mk-q4h" id="GlI-xl-z0y"/>
+                        <outlet property="tableView" destination="n9L-Fv-z2R" id="026-oT-ato"/>
                         <segue destination="eJR-ev-Yyc" kind="show" identifier="displayUser" id="pI2-8n-6Ck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwB-Ee-deS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-553" y="2288"/>
+            <point key="canvasLocation" x="-658" y="2597"/>
         </scene>
         <!--Profile-->
         <scene sceneID="gTa-sh-sE8">
@@ -2394,17 +2389,17 @@
                         <outlet property="followersLabel" destination="ikX-y6-8uR" id="mNi-Vy-ZJc"/>
                         <outlet property="followingLabel" destination="Nc3-hs-ZiD" id="xKn-mT-Q4a"/>
                         <outlet property="handle" destination="VIl-7x-sqh" id="f2n-mU-fEk"/>
-                        <segue destination="I6y-uK-fti" kind="show" identifier="displayFollower" id="qkO-2N-kq1"/>
+                        <segue destination="I6y-uK-fti" kind="show" identifier="specificUser" id="qkO-2N-kq1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMD-kR-p1G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="513" y="2328"/>
         </scene>
-        <!--Create Post View Controller-->
+        <!--Create Biz Post View Controller-->
         <scene sceneID="1Bq-IH-Iq5">
             <objects>
-                <viewController id="Ou3-aF-QXk" customClass="CreatePostViewController" customModule="GeoChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ou3-aF-QXk" customClass="CreateBizPostViewController" customModule="GeoChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WJ6-tu-Pm1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2415,7 +2410,7 @@
                                     <navigationItem id="6ma-En-tof">
                                         <barButtonItem key="leftBarButtonItem" title="back" id="25V-kh-oN8">
                                             <connections>
-                                                <action selector="backButton:" destination="Ou3-aF-QXk" id="7oF-Yo-7GI"/>
+                                                <action selector="backButton:" destination="Ou3-aF-QXk" id="kMf-77-jje"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -2490,11 +2485,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="19x-Ow-unj"/>
-                                    <action selector="sendClicked:" destination="Ou3-aF-QXk" eventType="touchUpInside" id="l41-DU-NBY"/>
-                                    <action selector="signUpClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IvS-Wx-iDa"/>
-                                    <action selector="signupClicked:" destination="iHg-h9-ea5" eventType="touchUpInside" id="4Ug-Gh-dYQ"/>
-                                    <action selector="signupClicked:" destination="dSY-Cm-kDF" eventType="touchUpInside" id="DVm-8a-POC"/>
+                                    <action selector="sendButton:" destination="Ou3-aF-QXk" eventType="touchUpInside" id="IKE-hp-bWn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-Fc-Sdz">
@@ -2506,7 +2497,7 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="uploadClicked:" destination="Ou3-aF-QXk" eventType="touchUpInside" id="sOH-kf-a9Y"/>
+                                    <action selector="imagePickerClicked:" destination="Ou3-aF-QXk" eventType="touchUpInside" id="FAC-2H-0cd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This message will be public to everyone that is in your area" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLg-AB-3oj">
@@ -2570,10 +2561,11 @@
                         <viewLayoutGuide key="safeArea" id="P2P-dx-JoY"/>
                     </view>
                     <connections>
-                        <outlet property="captionText" destination="5Wp-hD-Sq4" id="SGt-Uc-gAk"/>
-                        <outlet property="imageView" destination="ddH-By-0pU" id="wWZ-ij-9QI"/>
-                        <outlet property="selectImage" destination="Vfe-Fc-Sdz" id="R8a-C6-Ob9"/>
-                        <outlet property="sendButton" destination="liQ-qU-UIn" id="FEb-cJ-0ei"/>
+                        <outlet property="addButton" destination="Vfe-Fc-Sdz" id="zgq-k1-r8E"/>
+                        <outlet property="captionField" destination="5Wp-hD-Sq4" id="xKR-7r-2fE"/>
+                        <outlet property="expControl" destination="fEr-AJ-Tcy" id="FWI-UU-aFM"/>
+                        <outlet property="imageView" destination="ddH-By-0pU" id="hRl-Q5-Iic"/>
+                        <outlet property="sendButton" destination="liQ-qU-UIn" id="nfk-SR-Nsr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQq-RA-RR2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3142,7 +3134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="924-xP-zqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2226" y="2345"/>
+            <point key="canvasLocation" x="-2290" y="2345"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DnU-gE-w3e">
@@ -3305,7 +3297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKa-NC-Xt6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1545" y="2346"/>
+            <point key="canvasLocation" x="-1447" y="2345"/>
         </scene>
     </scenes>
     <resources>
@@ -3317,7 +3309,7 @@
         <image name="profile" width="90" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TfW-5c-1NH"/>
+        <segue reference="pI2-8n-6Ck"/>
         <segue reference="rZP-L6-Yrb"/>
         <segue reference="w9S-WM-AFh"/>
         <segue reference="vD6-ob-5Cn"/>

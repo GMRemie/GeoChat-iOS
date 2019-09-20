@@ -101,8 +101,13 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
                     let generator = UUID()
                     let uuid = generator.uuidString
                     
+                    let dateformatter = DateFormatter()
+                    dateformatter.dateStyle = DateFormatter.Style.short
+                    dateformatter.timeStyle = DateFormatter.Style.short
+                    let now = dateformatter.string(from: Date())
+                    
                     // Successfully got download URL
-                    let geoMessage = GeoMessage(title: "@\(self.profile!.handle!)", lat: self.coordinates.latitude, long: self.coordinates.longitude, author: self.profile.uniqueID, caption: caption, url: durl?.absoluteString, id: uuid, privacy: !(self.publicSwitch.isOn))
+                    let geoMessage = GeoMessage(title: "@\(self.profile!.handle!)", lat: self.coordinates.latitude, long: self.coordinates.longitude, author: self.profile.uniqueID, caption: caption, url: durl?.absoluteString, id: uuid, privacy: !(self.publicSwitch.isOn), biz: false, date: now,exp: 0)
                     geoMessage.users = self.users
                     
 

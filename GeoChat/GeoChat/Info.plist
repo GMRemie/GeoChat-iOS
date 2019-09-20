@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>GeoChat: Locational messaging</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,20 +24,20 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To upload pictures and content</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To send and receieve messages</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>to send and receive messages</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To send and receueve nessages</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To upload pictures and content</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>To send and receieve messages</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To send and receueve nessages</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
