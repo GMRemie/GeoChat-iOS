@@ -22,17 +22,17 @@ class ProfileViewController: UIViewController {
     var received = [String:String]()
     var friends = [String:String]()
     
-    @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var followingLabel: UIButton!
     
-    @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var followersLabel: UIButton!
     
     @IBOutlet weak var photosCount: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         handleLabel.text = "@\(userInfo!.handle!)"
         profilePicture.image = userInfo.avatar
-        followingLabel.text = "0"
-        followersLabel.text = "0"
+        followingLabel.titleLabel?.text = "0"
+        followersLabel.titleLabel?.text = "0"
         photosCount.text = "0"
         
         
@@ -79,8 +79,8 @@ class ProfileViewController: UIViewController {
             
         }
         
-        followersLabel.text = "\(received.count)"
-        followingLabel.text = "\(sent.count)"
+        followersLabel.titleLabel?.text = "\(received.count)"
+        followingLabel.titleLabel?.text = "\(sent.count)"
     }
 
     
@@ -113,4 +113,21 @@ class ProfileViewController: UIViewController {
     // user profile pages
     
 
+    @IBAction func peoplesClicked(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "viewPeople", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? UserResultsViewController{
+            
+            
+            var resultA = friends.merging(received, uniquingKeysWith: { (first, _) in first })
+            resultA = resultA.merging(sent, uniquingKeysWith: { (first, _) in first })
+            
+            destination.curUser = userInfo
+            destination.header = "\(userInfo!.handle!)'s people"
+            destination.people = resultA
+        }
+    }
 }

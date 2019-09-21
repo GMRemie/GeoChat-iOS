@@ -56,7 +56,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
         for (k,v) in dict{
             switch k{
             case "following":
-                print("Sent already1")
+                print("Following")
                 for (handle,id) in v as! [String:String]{
                     sent[id] = handle
                 }
@@ -104,8 +104,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
                     self.handlesStorage[key as! String] = value as! String
                 }
                 // Now filter
-                let sortedStorage = self.handlesStorage.filter({$0.key.lowercased().contains(handle.lowercased())})
-                self.processResultsToUsers(dict: sortedStorage)
+                let sortedStore = self.handlesStorage.filter({$0.key.range(of: handle.lowercased(), options: .caseInsensitive) != nil})
+
+                self.processResultsToUsers(dict: sortedStore)
             }
         }
  
@@ -161,6 +162,32 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
             cell.detailButton.setTitle("Follow", for: .normal)
         }
         
+        let storage = Storage.storage().reference()
+        let storageRef = storage.child(info.uniqueID)
+        let avatarRef = storageRef.child("avatar/avatar.jpg")
+        
+        avatarRef.downloadURL { (url, Error) in
+            if (Error != nil){
+                print(Error?.localizedDescription)
+                return
+            }
+            let configuration = URLSessionConfiguration.default
+            let session = URLSession.init(configuration: configuration)
+            let task = session.dataTask(with: url!, completionHandler: { (data, response, Error) in
+                if (Error != nil){
+                    print(Error?.localizedDescription)
+                    return
+                }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else{
+                    print("Error")
+                    return
+                }
+                DispatchQueue.main.async {
+                    cell.avatar.image = UIImage(data: data!)
+                }
+            })
+            task.resume()
+        }
         
         
         

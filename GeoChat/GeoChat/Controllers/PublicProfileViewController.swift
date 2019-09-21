@@ -17,8 +17,8 @@ class PublicProfileViewController: UIViewController {
     var userInfo: User!
     
     @IBOutlet weak var followButton: UIButton!
-    @IBOutlet weak var followersLabel: UILabel!
-    @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak var followersLabel: UIButton!
+    @IBOutlet weak var followingLabel: UIButton!
     var curUser: User!
     
     var sent = [String:String]()
@@ -28,12 +28,13 @@ class PublicProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        followersLabel.text = "0"
-        followingLabel.text = "0"
+        followersLabel.titleLabel?.text = "0"
+        followingLabel.titleLabel?.text = "0"
         
         handle.text = userInfo.handle!
         
         userInfo.getAvatFromUID(id: userInfo.uniqueID, image: avatar)
+        avatar.layer.cornerRadius = avatar.bounds.height/2
         
         loadBio()
         
@@ -50,6 +51,15 @@ class PublicProfileViewController: UIViewController {
         if let destination = segue.destination as? ReportViewController{
             destination.reported = userInfo
             destination.reporter = curUser
+        }
+        if let destination = segue.destination as? UserResultsViewController {
+            
+            var resultA = friends.merging(received, uniquingKeysWith: { (first, _) in first })
+            resultA = resultA.merging(sent, uniquingKeysWith: { (first, _) in first })
+            
+            destination.header = "\(curUser.handle!)'s people"
+            destination.people = resultA
+            destination.curUser = curUser
         }
     }
     
@@ -87,8 +97,8 @@ class PublicProfileViewController: UIViewController {
             
         }
         
-        followersLabel.text = "\(received.count)"
-        followingLabel.text = "\(sent.count)"
+        followersLabel.titleLabel!.text = "\(received.count)"
+        followingLabel.titleLabel?.text = "\(sent.count)"
         
         // Update button
         if sent.values.contains(curUser.uniqueID){
@@ -167,4 +177,12 @@ class PublicProfileViewController: UIViewController {
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
+    
+    
+    @IBAction func followersClicked(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "specificUser", sender: self)
+    }
+    
+    
+    
 }

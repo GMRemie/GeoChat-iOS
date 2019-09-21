@@ -64,6 +64,32 @@ class NotificationViewController: UIViewController, UITableViewDataSource,UITabl
 
         }
         
+        let storage = Storage.storage().reference()
+        let storageRef = storage.child(notification!.userID)
+        let avatarRef = storageRef.child("avatar/avatar.jpg")
+        
+        avatarRef.downloadURL { (url, Error) in
+            if (Error != nil){
+                print(Error?.localizedDescription)
+                return
+            }
+            let configuration = URLSessionConfiguration.default
+            let session = URLSession.init(configuration: configuration)
+            let task = session.dataTask(with: url!, completionHandler: { (data, response, Error) in
+                if (Error != nil){
+                    print(Error?.localizedDescription)
+                    return
+                }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else{
+                    print("Error")
+                    return
+                }
+                DispatchQueue.main.async {
+                    cell.avatar.image = UIImage(data: data!)
+                }
+            })
+            task.resume()
+        }
         
         return cell
     }
