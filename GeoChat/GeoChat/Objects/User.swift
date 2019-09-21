@@ -17,6 +17,7 @@ class User{
     let handle: String!
     let avatar: UIImage?
     var bizAccount = false
+    var administrator = false
     
     init(_email:String?,_id:String,_handle:String,_avatar:UIImage?) {
         self.email = _email ?? "Empty"

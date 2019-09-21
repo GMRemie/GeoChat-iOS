@@ -142,7 +142,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
                     let metadata = StorageMetadata()
                     metadata.contentType = "image/jpeg"
                     
-                    // Upload the file to the path "images/rivers.jpg"
+                    // Upload the file to the path
                     let uploadTask = avatarRef.putData(data, metadata: metadata) { (metadata, error) in
  
                     }

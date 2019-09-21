@@ -12,7 +12,7 @@ import Foundation
 struct Report : Encodable {
     let reportedID: String
     let reporterID: String
-    let date: Date
+    let date: String
     let reason: String
 
     

@@ -53,13 +53,21 @@ class LoginViewController: UIViewController {
                 let userInfoPath = self.path.child("users").child(aUser.uid)
                 var userHandle: String!
                 var bizAccount: Bool?
+                var administrator: Bool?
                 userInfoPath.observeSingleEvent(of: .value, with: { (DataSnapshot) in
                     if let snap = DataSnapshot.value as? NSDictionary{
                         userHandle = snap["handle"] as! String
                         guard let biz = snap["business"] as? Bool else{
                             return
                         }
+
                         bizAccount = biz
+                        
+                        guard let admincheck = snap["administrator"] as? Bool else{
+                            return
+                        }
+                        administrator = admincheck
+                        print("Admin check \(administrator)")
                     }
                 })
                 
@@ -90,6 +98,9 @@ class LoginViewController: UIViewController {
                             if (bizAccount != nil){
                                 currentUser.bizAccount = bizAccount!
                             }
+                            if (administrator != nil){
+                                currentUser.administrator = administrator!
+                            }
                             self.selectedUserProfile = currentUser
                             print("Loaded information, proceeding to segue")
                             DispatchQueue.main.async {
@@ -112,6 +123,7 @@ class LoginViewController: UIViewController {
         
         if let destination = (segue.destination as? UITabBarController)?.viewControllers!.first! as? MapViewController{
             destination.Profile = selectedUserProfile
+        
         }
         
         if let destination = (segue.destination as? UITabBarController)?.viewControllers![2] as? ProfileViewController{

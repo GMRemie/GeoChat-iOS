@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ReportViewController: UIViewController {
+class ReportViewController: UIViewController, UITextFieldDelegate {
     
     var reported: User!
     var reporter: User!
@@ -29,6 +29,10 @@ class ReportViewController: UIViewController {
         reportedHandle.text = "@\(reported.handle!)"
         
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
 
     @IBAction func reportSent(_ sender: UIButton) {
@@ -41,7 +45,12 @@ class ReportViewController: UIViewController {
             
             let reportRef = self.DatabaseReference.child("reports").child(self.reported.uniqueID).childByAutoId()
             
-            let report = Report(reportedID: self.reported.uniqueID, reporterID: self.reporter.uniqueID, date: Date(), reason: self.reportReason.text)
+            let dateformatter = DateFormatter()
+            dateformatter.dateStyle = DateFormatter.Style.short
+            dateformatter.timeStyle = DateFormatter.Style.short
+            let now = dateformatter.string(from: Date())
+            
+            let report = Report(reportedID: self.reported.uniqueID, reporterID: self.reporter.uniqueID, date: now, reason: self.reportReason.text)
             do{
             try reportRef.setValue(report.asDictionary())
             } catch{

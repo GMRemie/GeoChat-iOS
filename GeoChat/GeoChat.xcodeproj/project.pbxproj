@@ -66,6 +66,12 @@
 		D4AE611423354BA3005F6D81 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611323354BA3005F6D81 /* StatsTableViewCell.swift */; };
 		D4AE611623354C82005F6D81 /* MarkerStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611523354C82005F6D81 /* MarkerStatsViewController.swift */; };
 		D4AE611823356305005F6D81 /* UserResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611723356305005F6D81 /* UserResultTableViewCell.swift */; };
+		D4AE611A23369434005F6D81 /* AdminReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611923369434005F6D81 /* AdminReportsViewController.swift */; };
+		D4AE611C23369475005F6D81 /* AdminReportCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611B23369475005F6D81 /* AdminReportCellTableViewCell.swift */; };
+		D4AE611E2336A74E005F6D81 /* ReportDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611D2336A74E005F6D81 /* ReportDetailsViewController.swift */; };
+		D4AE61202336D09E005F6D81 /* AdminLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611F2336D09E005F6D81 /* AdminLogViewController.swift */; };
+		D4AE61222336D1E9005F6D81 /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE61212336D1E9005F6D81 /* LogTableViewCell.swift */; };
+		D4AE61242336DE78005F6D81 /* AdminActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE61232336DE78005F6D81 /* AdminActionViewController.swift */; };
 		D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */; };
 		D4E1C3482316D06B0049A39D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3472316D06B0049A39D /* User.swift */; };
 /* End PBXBuildFile section */
@@ -134,6 +140,12 @@
 		D4AE611323354BA3005F6D81 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		D4AE611523354C82005F6D81 /* MarkerStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerStatsViewController.swift; sourceTree = "<group>"; };
 		D4AE611723356305005F6D81 /* UserResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResultTableViewCell.swift; sourceTree = "<group>"; };
+		D4AE611923369434005F6D81 /* AdminReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReportsViewController.swift; sourceTree = "<group>"; };
+		D4AE611B23369475005F6D81 /* AdminReportCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReportCellTableViewCell.swift; sourceTree = "<group>"; };
+		D4AE611D2336A74E005F6D81 /* ReportDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailsViewController.swift; sourceTree = "<group>"; };
+		D4AE611F2336D09E005F6D81 /* AdminLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLogViewController.swift; sourceTree = "<group>"; };
+		D4AE61212336D1E9005F6D81 /* LogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
+		D4AE61232336DE78005F6D81 /* AdminActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminActionViewController.swift; sourceTree = "<group>"; };
 		D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		D4E1C3472316D06B0049A39D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,6 +256,10 @@
 				D43741A4232B0B7500287B91 /* ReportViewController.swift */,
 				D4AE610D2334BA1B005F6D81 /* UserResultsViewController.swift */,
 				D4AE611523354C82005F6D81 /* MarkerStatsViewController.swift */,
+				D4AE611923369434005F6D81 /* AdminReportsViewController.swift */,
+				D4AE611D2336A74E005F6D81 /* ReportDetailsViewController.swift */,
+				D4AE611F2336D09E005F6D81 /* AdminLogViewController.swift */,
+				D4AE61232336DE78005F6D81 /* AdminActionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -267,6 +283,8 @@
 				D4594A60232714D800C95F72 /* AddedUserCollectionViewCell.swift */,
 				D4AE611323354BA3005F6D81 /* StatsTableViewCell.swift */,
 				D4AE611723356305005F6D81 /* UserResultTableViewCell.swift */,
+				D4AE611B23369475005F6D81 /* AdminReportCellTableViewCell.swift */,
+				D4AE61212336D1E9005F6D81 /* LogTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -438,18 +456,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4AE611E2336A74E005F6D81 /* ReportDetailsViewController.swift in Sources */,
 				D4813D7F2317FCE30005A512 /* MapViewController.swift in Sources */,
 				D4594A61232714D800C95F72 /* AddedUserCollectionViewCell.swift in Sources */,
+				D4AE611A23369434005F6D81 /* AdminReportsViewController.swift in Sources */,
 				D4813D83231847BC0005A512 /* CreatePostViewController.swift in Sources */,
 				D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */,
 				D4594A5F2327095300C95F72 /* SelectUsersViewController.swift in Sources */,
 				D4AE610223349790005F6D81 /* CreateBizPostViewController.swift in Sources */,
+				D4AE611C23369475005F6D81 /* AdminReportCellTableViewCell.swift in Sources */,
 				D447B3212323700E001E78DA /* SearchViewController.swift in Sources */,
+				D4AE61242336DE78005F6D81 /* AdminActionViewController.swift in Sources */,
 				D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */,
 				D4043E3323151757004338B4 /* ViewController.swift in Sources */,
 				D4594A5223263EF600C95F72 /* ProfileViewController.swift in Sources */,
 				D4AE610E2334BA1B005F6D81 /* UserResultsViewController.swift in Sources */,
 				D4043E6D2315502A004338B4 /* Colors.swift in Sources */,
+				D4AE61222336D1E9005F6D81 /* LogTableViewCell.swift in Sources */,
 				D4813D852318854C0005A512 /* MessageViewController.swift in Sources */,
 				D4813D8923189C9E0005A512 /* SettingsViewController.swift in Sources */,
 				D4AE610A2334AE30005F6D81 /* IAPEnum.swift in Sources */,
@@ -460,6 +483,7 @@
 				D4043E782316C399004338B4 /* LoginViewController.swift in Sources */,
 				D4043E3123151757004338B4 /* AppDelegate.swift in Sources */,
 				D4AE611823356305005F6D81 /* UserResultTableViewCell.swift in Sources */,
+				D4AE61202336D09E005F6D81 /* AdminLogViewController.swift in Sources */,
 				D43741A9232B154800287B91 /* Codable.swift in Sources */,
 				D4043E71231659E2004338B4 /* RegistrationViewController.swift in Sources */,
 				D4594A5D2326F71B00C95F72 /* NotificationTableViewCell.swift in Sources */,

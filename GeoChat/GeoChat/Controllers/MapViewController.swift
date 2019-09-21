@@ -16,9 +16,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var mapkit: MKMapView!
     @IBOutlet weak var bizButton: UIButton!
+    @IBOutlet weak var adminButton: UIButton!
+    
     
     var Profile:User!
     var BusinessAccount = false
+    var administrator = false
     let locationmanager = CLLocationManager()
     
     var path:DatabaseReference!
@@ -36,6 +39,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapkit.mapType = .mutedStandard
         
         BusinessAccount = Profile.bizAccount
+        administrator = Profile.administrator
         
         createButton.backgroundColor = Colors.yellow
         createButton.layer.cornerRadius = 40
@@ -46,6 +50,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             bizButton.isHidden = false
         }else{
             bizButton.isHidden = true
+        }
+        if (administrator){
+            adminButton.backgroundColor = Colors.yellow
+            adminButton.layer.cornerRadius = 40
+            adminButton.isHidden = false
+        }else{
+            adminButton.isHidden = true
         }
         
         checkLocationServices()
@@ -92,6 +103,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
         if let destination = segue.destination as? MarkerStatsViewController{
             destination.owner = Profile
+        }
+        if let destination = segue.destination as? AdminReportsViewController{
+            destination.admin = Profile
         }
     }
     
@@ -381,5 +395,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
+    @IBAction func adminClicked(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Administration", message: "Would you like to view report logs?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (UIAlertAction) in
+            self.performSegue(withIdentifier: "admin", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        self.present(alert, animated: true)
+        
+    }
     
 }
