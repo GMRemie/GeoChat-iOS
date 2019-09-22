@@ -93,16 +93,25 @@ class LoginViewController: UIViewController {
                         guard let biz = snap["business"] as? Bool else{
                             return
                         }
-                        guard let bancheck = snap["ban"] as? Bool else{
-                            return
-                        }
-                        ban = bancheck
+
                         bizAccount = biz
                         
                         guard let admincheck = snap["administrator"] as? Bool else{
                             return
                         }
                         administrator = admincheck
+                        
+                       
+                    }
+                })
+                
+                userInfoPath.observeSingleEvent(of: .value, with: { (DataSnapshot) in
+                    if let snap = DataSnapshot.value as? NSDictionary{
+                        
+                        guard let bancheck = snap["ban"] as? Bool else{
+                            return
+                        }
+                        ban = bancheck
                     }
                 })
                 
