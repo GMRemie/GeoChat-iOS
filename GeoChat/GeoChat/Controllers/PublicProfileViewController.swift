@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Charts
 class PublicProfileViewController: UIViewController {
 
     
@@ -20,6 +21,7 @@ class PublicProfileViewController: UIViewController {
     @IBOutlet weak var followersLabel: UIButton!
     @IBOutlet weak var followingLabel: UIButton!
     var curUser: User!
+    @IBOutlet weak var pieChart: PieChartView!
     
     var sent = [String:String]()
     var received = [String:String]()
@@ -47,6 +49,30 @@ class PublicProfileViewController: UIViewController {
         }
     }
     
+    
+    func updatePieChart(){
+        
+        var followerCount:Double = (Double(received.count)) + 10
+        var followingCount:Double = (Double(sent.count)) + 10
+        var followers = PieChartDataEntry(value: followerCount)
+        var following = PieChartDataEntry(value: followingCount)
+        let dataEntries = [followers,following]
+        
+        followers.label = "Follower"
+        following.label = "Following"
+        
+        let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
+        let chartData = PieChartData(dataSet: chartDataSet)
+        
+        let colors = [Colors.blue, Colors.salmon]
+        chartDataSet.colors = colors as! [NSUIColor]
+        
+        pieChart.data = chartData
+        
+        
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ReportViewController{
             destination.reported = userInfo
@@ -57,7 +83,7 @@ class PublicProfileViewController: UIViewController {
             var resultA = friends.merging(received, uniquingKeysWith: { (first, _) in first })
             resultA = resultA.merging(sent, uniquingKeysWith: { (first, _) in first })
             
-            destination.header = "\(curUser.handle!)'s people"
+            destination.header = "\(userInfo.handle!)'s people"
             destination.people = resultA
             destination.curUser = curUser
         }
@@ -97,8 +123,9 @@ class PublicProfileViewController: UIViewController {
             
         }
         
-        followersLabel.titleLabel!.text = "\(received.count)"
-        followingLabel.titleLabel?.text = "\(sent.count)"
+        followersLabel.setTitle("\(received.count)", for: .normal)
+        followingLabel.setTitle("\(sent.count)", for: .normal)
+        updatePieChart()
         
         // Update button
         if sent.values.contains(curUser.uniqueID){

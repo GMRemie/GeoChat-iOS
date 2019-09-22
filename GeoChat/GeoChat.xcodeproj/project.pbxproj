@@ -57,7 +57,6 @@
 		D4813D872318863C0005A512 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D862318863C0005A512 /* MessageContainer.swift */; };
 		D4813D8923189C9E0005A512 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4813D8823189C9E0005A512 /* SettingsViewController.swift */; };
 		D4AE610223349790005F6D81 /* CreateBizPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE610123349790005F6D81 /* CreateBizPostViewController.swift */; };
-		D4AE61042334A66C005F6D81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4AE61032334A66C005F6D81 /* GoogleService-Info.plist */; };
 		D4AE61062334A9CE005F6D81 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AE61052334A9CD005F6D81 /* StoreKit.framework */; };
 		D4AE610A2334AE30005F6D81 /* IAPEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE61092334AE30005F6D81 /* IAPEnum.swift */; };
 		D4AE610C2334AECA005F6D81 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE610B2334AECA005F6D81 /* IAPService.swift */; };
@@ -72,6 +71,7 @@
 		D4AE61202336D09E005F6D81 /* AdminLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE611F2336D09E005F6D81 /* AdminLogViewController.swift */; };
 		D4AE61222336D1E9005F6D81 /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE61212336D1E9005F6D81 /* LogTableViewCell.swift */; };
 		D4AE61242336DE78005F6D81 /* AdminActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE61232336DE78005F6D81 /* AdminActionViewController.swift */; };
+		D4AE61262336F5AD005F6D81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4AE61252336F5AD005F6D81 /* GoogleService-Info.plist */; };
 		D4E1C3452316CBA10049A39D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */; };
 		D4E1C3482316D06B0049A39D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1C3472316D06B0049A39D /* User.swift */; };
 /* End PBXBuildFile section */
@@ -131,7 +131,6 @@
 		D4813D862318863C0005A512 /* MessageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		D4813D8823189C9E0005A512 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D4AE610123349790005F6D81 /* CreateBizPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBizPostViewController.swift; sourceTree = "<group>"; };
-		D4AE61032334A66C005F6D81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4AE61052334A9CD005F6D81 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D4AE61092334AE30005F6D81 /* IAPEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPEnum.swift; sourceTree = "<group>"; };
 		D4AE610B2334AECA005F6D81 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
@@ -146,6 +145,7 @@
 		D4AE611F2336D09E005F6D81 /* AdminLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLogViewController.swift; sourceTree = "<group>"; };
 		D4AE61212336D1E9005F6D81 /* LogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
 		D4AE61232336DE78005F6D81 /* AdminActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminActionViewController.swift; sourceTree = "<group>"; };
+		D4AE61252336F5AD005F6D81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4E1C3442316CBA10049A39D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		D4E1C3472316D06B0049A39D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,8 +202,8 @@
 				D4043E3423151757004338B4 /* Main.storyboard */,
 				D4043E372315175C004338B4 /* Assets.xcassets */,
 				D4043E3023151757004338B4 /* AppDelegate.swift */,
-				D4AE61032334A66C005F6D81 /* GoogleService-Info.plist */,
 				D4043E392315175C004338B4 /* LaunchScreen.storyboard */,
+				D4AE61252336F5AD005F6D81 /* GoogleService-Info.plist */,
 				D4043E3C2315175C004338B4 /* Info.plist */,
 				D4043E75231668D2004338B4 /* FirebaseHelper.swift */,
 			);
@@ -382,6 +382,7 @@
 			files = (
 				D4043E5A23151E7C004338B4 /* Poppins-Black.ttf in Resources */,
 				D4043E5C23151E7C004338B4 /* Poppins-Light.ttf in Resources */,
+				D4AE61262336F5AD005F6D81 /* GoogleService-Info.plist in Resources */,
 				D4043E6523151E7C004338B4 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				D4043E3B2315175C004338B4 /* LaunchScreen.storyboard in Resources */,
 				D4043E5D23151E7C004338B4 /* Poppins-ThinItalic.ttf in Resources */,
@@ -401,7 +402,6 @@
 				D4043E5E23151E7C004338B4 /* Poppins-Thin.ttf in Resources */,
 				D4043E3623151757004338B4 /* Main.storyboard in Resources */,
 				D4043E5723151E7C004338B4 /* Poppins-BoldItalic.ttf in Resources */,
-				D4AE61042334A66C005F6D81 /* GoogleService-Info.plist in Resources */,
 				D4043E6823151E7C004338B4 /* Poppins-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,15 +416,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GeoChat/Pods-GeoChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

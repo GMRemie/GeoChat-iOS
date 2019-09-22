@@ -185,7 +185,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
             })
         }
         
-        let alert = UIAlertController(title: "Success!", message: "Your account information has been updated!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Success!", message: "Your account information has been updated! Please sign-out and back in for some of these changes to take affect.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default))
         self.present(alert, animated: true)
         

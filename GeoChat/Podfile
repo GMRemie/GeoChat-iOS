@@ -7,6 +7,8 @@ target 'GeoChat' do
 
   # Pods for GeoChat
 pod 'Firebase/Auth'
+pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
+pod 'Charts'
 end

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Charts
 
 class ProfileViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var userBio: UILabel!
+    
+    @IBOutlet weak var pieChart: PieChartView!
     
     var sent = [String:String]()
     var received = [String:String]()
@@ -31,8 +34,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         handleLabel.text = "@\(userInfo!.handle!)"
         profilePicture.image = userInfo.avatar
-        followingLabel.titleLabel?.text = "0"
-        followersLabel.titleLabel?.text = "0"
+
         photosCount.text = "0"
         
         
@@ -48,9 +50,33 @@ class ProfileViewController: UIViewController {
                 self.updateFriends(data: data)
             }
         }
+
+    }
+    
+    func updatePieChart(){
+        
+        var followerCount:Double = (Double(received.count)) + 10
+        var followingCount:Double = (Double(sent.count)) + 10
+        var followers = PieChartDataEntry(value: followerCount)
+        var following = PieChartDataEntry(value: followingCount)
+        let dataEntries = [followers,following]
+
+        followers.label = "Follower"
+        following.label = "Following"
+        
+        let chartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
+        let chartData = PieChartData(dataSet: chartDataSet)
+        
+        let colors = [Colors.blue, Colors.salmon]
+        chartDataSet.colors = colors as! [NSUIColor]
+        
+        pieChart.data = chartData
+        
+        
     }
     
     func updateFriends(data:NSDictionary){
+        print("Updating friends..")
         
         sent.removeAll()
         received.removeAll()
@@ -59,6 +85,8 @@ class ProfileViewController: UIViewController {
         // Our Following, Followers, and friends
         let dict = data as! [String:Any]
         for (k,v) in dict{
+            
+
             switch k{
             case "following":
                 for (handle,id) in v as! [String:String]{
@@ -79,8 +107,10 @@ class ProfileViewController: UIViewController {
             
         }
         
-        followersLabel.titleLabel?.text = "\(received.count)"
-        followingLabel.titleLabel?.text = "\(sent.count)"
+        followingLabel.setTitle("\(sent.count)", for: .normal)
+        followersLabel.setTitle("\(received.count)", for: .normal)
+
+        updatePieChart()
     }
 
     
