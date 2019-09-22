@@ -119,6 +119,13 @@ class ProfileViewController: UIViewController {
         userInfo.getBio(ref: dataRef, label: userBio)
     }
     
+    func signOutUserInfo(){
+        print("Current user information deleted..")
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+
+    }
     
     @IBAction func signoutClicked(_ sender: UIButton) {
         
@@ -131,6 +138,9 @@ class ProfileViewController: UIViewController {
                 } catch let signOutError as NSError {
                     print ("Error signing out: %@", signOutError)
                 }
+                
+                self.signOutUserInfo()
+                
                 self.performSegue(withIdentifier: "signOut", sender: self)
             }))
             

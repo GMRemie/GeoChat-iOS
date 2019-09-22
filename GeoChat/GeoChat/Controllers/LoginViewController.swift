@@ -27,12 +27,39 @@ class LoginViewController: UIViewController {
         signupButton.roundCorners()
         
         path = Database.database().reference()
+        
+        existingUserCheck()
 
+    }
+    
+    func existingUserCheck(){
+        let userDefaults = UserDefaults.init()
+        let user = userDefaults.value(forKey: "user") as? String
+        let pass = userDefaults.value(forKey: "pass") as? String
+        if (user != nil && pass != nil){
+            emailText.text = user!
+            passwordText.text = pass!
+            signIn()
+        }else{
+            print("No existing user information found!")
+        }
+    }
+    
+    func saveCurrentUserInfo(){
+        print("Current user information saved..")
+        let userDefaults = UserDefaults.init()
+        userDefaults.set(emailText.text!, forKey: "user")
+        userDefaults.set(passwordText.text!, forKey: "pass")
     }
     
     
     @IBAction func signupClicked(_ sender: UIButton) {
         
+        signIn()
+        
+    }
+    
+    func signIn(){
         Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { (AuthDataResult, Error) in
             if (Error != nil){
                 let alert = UIAlertController(title: "Error!", message: Error?.localizedDescription, preferredStyle: .alert)
@@ -49,9 +76,10 @@ class LoginViewController: UIViewController {
                 let storageRef = storage.child(aUser.uid)
                 let avatarRef = storageRef.child("avatar/avatar.jpg")
                 
+                self.saveCurrentUserInfo()
                 // get handle and other user information later on in beta states
                 
-             
+                
                 
                 let userInfoPath = self.path.child("users").child(aUser.uid)
                 var userHandle: String!
@@ -62,11 +90,13 @@ class LoginViewController: UIViewController {
                     if let snap = DataSnapshot.value as? NSDictionary{
                         userHandle = (snap["handle"] as! String)
                         
-                        ban = snap["ban"] as? Bool ?? false
                         guard let biz = snap["business"] as? Bool else{
                             return
                         }
-
+                        guard let bancheck = snap["ban"] as? Bool else{
+                            return
+                        }
+                        ban = bancheck
                         bizAccount = biz
                         
                         guard let admincheck = snap["administrator"] as? Bool else{
@@ -76,56 +106,62 @@ class LoginViewController: UIViewController {
                     }
                 })
                 
-                if (ban != nil && ban == true){
-                    let alert = UIAlertController(title: "BANNED", message: "You are banned from using GeoChat", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .destructive))
-                    self.present(alert, animated: true)
-                    
-                    
-                    
-                    
-                }else{
-                    avatarRef.downloadURL(completion: { (url, Error) in
-                        if (Error != nil){
-                            print("ERror downloading url")
-                        }else{
-                            let config = URLSessionConfiguration.default
-                            let session = URLSession.init(configuration: config)
+                
+                avatarRef.downloadURL(completion: { (url, Error) in
+                    if (Error != nil){
+                        print("ERror downloading url")
+                    }else{
+                        let config = URLSessionConfiguration.default
+                        let session = URLSession.init(configuration: config)
+                        
+                        let task = session.dataTask(with: url!, completionHandler: { (Data, Response, Error) in
                             
-                            let task = session.dataTask(with: url!, completionHandler: { (Data, Response, Error) in
-                                
-                                if (Error != nil){
-                                    print(Error!.localizedDescription)
-                                    return
-                                }
-                                
-                                guard let response = Response as? HTTPURLResponse, response.statusCode == 200 else{
-                                    print("Error getting HTTP REsponse")
-                                    return
-                                }
-                                
-                                let avatar = UIImage(data: Data!, scale: 0.5)
-                                let currentUser = User(_email: Auth.auth().currentUser!.email!, _id: Auth.auth().currentUser!.uid, _handle: userHandle, _avatar: avatar)
-                                if (bizAccount != nil){
-                                    currentUser.bizAccount = bizAccount!
-                                }
-                                if (administrator != nil){
-                                    currentUser.administrator = administrator!
-                                }
-                                self.selectedUserProfile = currentUser
-                                print("Loaded information, proceeding to segue")
+                            if (Error != nil){
+                                print(Error!.localizedDescription)
+                                return
+                            }
+                            
+                            guard let response = Response as? HTTPURLResponse, response.statusCode == 200 else{
+                                print("Error getting HTTP REsponse")
+                                return
+                            }
+                            
+                            let avatar = UIImage(data: Data!, scale: 0.5)
+                            let currentUser = User(_email: Auth.auth().currentUser!.email!, _id: Auth.auth().currentUser!.uid, _handle: userHandle, _avatar: avatar)
+                            if (ban != nil){
+                                print("Banned")
                                 DispatchQueue.main.async {
-                                    self.performSegue(withIdentifier: "SignIn", sender: self)
+                                    let alert = UIAlertController(title: "BANNED", message: "You are banned from using GeoChat", preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style: .destructive))
+                                    self.present(alert, animated: true)
+                                    
+                                    do{
+                                        try Auth.auth().signOut()
+                                    } catch{
+                                        print("Error signing out")
+                                    }
                                 }
                                 
-                            })
-                            task.resume()
-                        }
-                    })
-                }
+                                return
+                            }
+                            if (bizAccount != nil){
+                                currentUser.bizAccount = bizAccount!
+                            }
+                            if (administrator != nil){
+                                currentUser.administrator = administrator!
+                            }
+                            self.selectedUserProfile = currentUser
+                            print("Loaded information, proceeding to segue")
+                            DispatchQueue.main.async {
+                                self.performSegue(withIdentifier: "SignIn", sender: self)
+                            }
+                            
+                        })
+                        task.resume()
+                    }
+                })
             }
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
