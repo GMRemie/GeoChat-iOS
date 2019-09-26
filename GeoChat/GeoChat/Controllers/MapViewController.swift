@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
-
+import UserNotifications
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var createButton: UIButton!
@@ -28,9 +28,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var discovered = [String]()
     var messages = [String:GeoMessage]()
     
+
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
+    
+    
     
     
     override func viewDidLoad() {
@@ -291,6 +295,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
+    
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("You just entered a region! You found it! \(region.identifier)")
             let found = UIAlertController(title: "Message found!", message: "You found a new message! Would you like to open it?", preferredStyle: .alert)
@@ -299,6 +304,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 self.discoverMessage(identifier: region.identifier, region: region)
             }))
             present(found, animated: true)
+        
+        let state = UIApplication.shared.applicationState
+            if state == .background || state == .inactive {
+                let notificationContent = UNMutableNotificationContent()
+                notificationContent.body = "GeoMessage Discovered!"
+                notificationContent.sound = UNNotificationSound.default
+                notificationContent.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+                let request = UNNotificationRequest(identifier: "location_change",
+                                                    content: notificationContent,
+                                                    trigger: trigger)
+                UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        print("Error: \(error)")
+                    }
+                }
+            }
     }
     
     func discoverMessage(identifier:String, region: CLRegion){
@@ -358,6 +380,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     
     
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // tapped on map marker
+        print("marker tapped")
+        
+        
+    }
     
     // this is where we will customize our marker for Business markers
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

@@ -30,8 +30,8 @@ class PublicProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        followersLabel.titleLabel?.text = "0"
-        followingLabel.titleLabel?.text = "0"
+        followersLabel.setTitle("0", for: .normal)
+        followingLabel.setTitle("0", for: .normal)
         
         handle.text = userInfo.handle!
         
