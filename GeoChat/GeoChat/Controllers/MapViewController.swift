@@ -297,30 +297,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        messageRegionNotify(region: region)
+    }
+    
+    func messageRegionNotify(region: CLRegion){
         print("You just entered a region! You found it! \(region.identifier)")
-            let found = UIAlertController(title: "Message found!", message: "You found a new message! Would you like to open it?", preferredStyle: .alert)
-            found.addAction(UIAlertAction(title: "No", style: .destructive))
-            found.addAction(UIAlertAction(title: "Open", style: .default, handler: { (UIAlertAction) in
-                self.discoverMessage(identifier: region.identifier, region: region)
-            }))
-            present(found, animated: true)
+        let found = UIAlertController(title: "Message found!", message: "You found a new message! Would you like to open it?", preferredStyle: .alert)
+        found.addAction(UIAlertAction(title: "No", style: .destructive))
+        found.addAction(UIAlertAction(title: "Open", style: .default, handler: { (UIAlertAction) in
+            self.discoverMessage(identifier: region.identifier, region: region)
+        }))
+        present(found, animated: true)
         
         let state = UIApplication.shared.applicationState
-            if state == .background || state == .inactive {
-                let notificationContent = UNMutableNotificationContent()
-                notificationContent.body = "GeoMessage Discovered!"
-                notificationContent.sound = UNNotificationSound.default
-                notificationContent.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-                let request = UNNotificationRequest(identifier: "location_change",
-                                                    content: notificationContent,
-                                                    trigger: trigger)
-                UNUserNotificationCenter.current().add(request) { error in
-                    if let error = error {
-                        print("Error: \(error)")
-                    }
+        if state == .background || state == .inactive {
+            let notificationContent = UNMutableNotificationContent()
+            notificationContent.body = "GeoMessage Discovered!"
+            notificationContent.sound = UNNotificationSound.default
+            notificationContent.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let request = UNNotificationRequest(identifier: "location_change",
+                                                content: notificationContent,
+                                                trigger: trigger)
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error: \(error)")
                 }
             }
+        }
     }
     
     func discoverMessage(identifier:String, region: CLRegion){
@@ -383,9 +387,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // tapped on map marker
-        print("marker tapped")
-        
-        
+        let geomessage = view.annotation as! GeoMessage
+        let regions = Array(locationmanager.monitoredRegions)
+        for region in regions{
+            if (region.identifier == geomessage.id){
+                messageRegionNotify(region: region)
+                return
+            }
+        }
+
     }
     
     // this is where we will customize our marker for Business markers
