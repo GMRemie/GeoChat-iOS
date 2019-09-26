@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Firebase
 import StoreKit
+import Lottie
 
 class CreateBizPostViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
 
@@ -28,6 +29,8 @@ class CreateBizPostViewController: UIViewController, UITextFieldDelegate, UINavi
     var path:DatabaseReference!
     
     var coordinates: CLLocationCoordinate2D!
+    var animationView: AnimationView!
+    var blurEffectView: UIVisualEffectView!
     
     
     override func viewDidLoad() {
@@ -42,6 +45,28 @@ class CreateBizPostViewController: UIViewController, UITextFieldDelegate, UINavi
     }
     
     
+    func startAnimation(){
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        
+        animationView = AnimationView(name: "locationLottie")
+        animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 700)
+        animationView.center = self.view.center
+        animationView.contentMode = .scaleAspectFit
+        view.addSubview(animationView)
+        animationView.play()
+        animationView.loopMode = .loop
+    }
+    
+    func stopAnimation(){
+        blurEffectView.isHidden = true
+        animationView.isHidden = true
+        
+    }
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -74,6 +99,7 @@ class CreateBizPostViewController: UIViewController, UITextFieldDelegate, UINavi
     }
     
     @IBAction func sendButton(_ sender: UIButton) {
+        
         switch expControl.selectedSegmentIndex {
         case 0:
             //
@@ -95,6 +121,7 @@ class CreateBizPostViewController: UIViewController, UITextFieldDelegate, UINavi
     }
     
     func businessMarkerCallBack(){
+        startAnimation()
         let caption = captionField.text!
         
         let storageRef = Storage.storage().reference().child(profile.uniqueID).child(caption)
@@ -110,6 +137,7 @@ class CreateBizPostViewController: UIViewController, UITextFieldDelegate, UINavi
         
         let uploadTask = avatarRef.putData(data, metadata: metadata) { (StorageMetadata, Error) in
             if (Error != nil){
+                self.stopAnimation()
                 print("Error uploading file")
             }
         }
@@ -117,6 +145,7 @@ class CreateBizPostViewController: UIViewController, UITextFieldDelegate, UINavi
             // good to go
             avatarRef.downloadURL(completion: { (durl, Error) in
                 if (Error != nil){
+                    self.stopAnimation()
                     print("Error")
                 }else{
                     let generator = UUID()
@@ -133,6 +162,7 @@ class CreateBizPostViewController: UIViewController, UITextFieldDelegate, UINavi
                     
                     
                     self.path.child("public").child(uuid).setValue(geoMessage.convertToDict(), withCompletionBlock: { (Error, DatabaseReference) in
+                        self.stopAnimation()
                         if (Error != nil){
                             print("Error uploading GeoChat message to database")
                         }

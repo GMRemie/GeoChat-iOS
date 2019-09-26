@@ -38,7 +38,7 @@
 		D4043E742316606C004338B4 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E732316606C004338B4 /* UIButtonExtension.swift */; };
 		D4043E76231668D2004338B4 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E75231668D2004338B4 /* FirebaseHelper.swift */; };
 		D4043E782316C399004338B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4043E772316C398004338B4 /* LoginViewController.swift */; };
-		D41C9BE6233713490091668D /* 56-location-pin.json in Resources */ = {isa = PBXBuildFile; fileRef = D41C9BE5233713480091668D /* 56-location-pin.json */; };
+		D41C9BE6233713490091668D /* locationLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = D41C9BE5233713480091668D /* locationLottie.json */; };
 		D43741A5232B0B7500287B91 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43741A4232B0B7500287B91 /* ReportViewController.swift */; };
 		D43741A7232B141000287B91 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43741A6232B141000287B91 /* Report.swift */; };
 		D43741A9232B154800287B91 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43741A8232B154800287B91 /* Codable.swift */; };
@@ -113,7 +113,7 @@
 		D4043E732316606C004338B4 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		D4043E75231668D2004338B4 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		D4043E772316C398004338B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D41C9BE5233713480091668D /* 56-location-pin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "56-location-pin.json"; sourceTree = "<group>"; };
+		D41C9BE5233713480091668D /* locationLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locationLottie.json; sourceTree = "<group>"; };
 		D43741A4232B0B7500287B91 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		D43741A6232B141000287B91 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		D43741A8232B154800287B91 /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 		D4043E2F23151756004338B4 /* GeoChat */ = {
 			isa = PBXGroup;
 			children = (
-				D41C9BE5233713480091668D /* 56-location-pin.json */,
+				D41C9BE5233713480091668D /* locationLottie.json */,
 				D4594A53232657E700C95F72 /* Views */,
 				D4E1C3462316D0450049A39D /* Objects */,
 				D4043E722316604A004338B4 /* Extensions */,
@@ -392,7 +392,7 @@
 				D4043E6623151E7C004338B4 /* Poppins-SemiBold.ttf in Resources */,
 				D4043E6323151E7C004338B4 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				D4043E5623151E7C004338B4 /* Poppins-MediumItalic.ttf in Resources */,
-				D41C9BE6233713490091668D /* 56-location-pin.json in Resources */,
+				D41C9BE6233713490091668D /* locationLottie.json in Resources */,
 				D4043E5F23151E7C004338B4 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				D4043E6023151E7C004338B4 /* Poppins-ExtraLight.ttf in Resources */,
 				D4043E5B23151E7C004338B4 /* OFL.txt in Resources */,

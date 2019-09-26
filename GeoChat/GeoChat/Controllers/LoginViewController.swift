@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import Lottie
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var signupButton: UIButton!
@@ -16,6 +16,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
+    
+    // lottie and animation
+    
+    var animationView: AnimationView!
+    var blurEffectView: UIVisualEffectView!
     
     var path:DatabaseReference!
 
@@ -30,6 +35,29 @@ class LoginViewController: UIViewController {
         
         existingUserCheck()
 
+    }
+    
+    
+    func startAnimation(){
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        
+        animationView = AnimationView(name: "locationLottie")
+        animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 700)
+        animationView.center = self.view.center
+        animationView.contentMode = .scaleAspectFit
+        view.addSubview(animationView)
+        animationView.play()
+        animationView.loopMode = .loop
+    }
+    
+    func stopAnimation(){
+        blurEffectView.isHidden = true
+        animationView.isHidden = true
+        
     }
     
     func existingUserCheck(){
@@ -60,8 +88,10 @@ class LoginViewController: UIViewController {
     }
     
     func signIn(){
+        startAnimation()
         Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { (AuthDataResult, Error) in
             if (Error != nil){
+                self.stopAnimation()
                 let alert = UIAlertController(title: "Error!", message: Error?.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Continue", style: .default))
                 self.present(alert, animated: true)
@@ -140,6 +170,7 @@ class LoginViewController: UIViewController {
                             if (ban != nil){
                                 print("Banned")
                                 DispatchQueue.main.async {
+                                    self.stopAnimation()
                                     let alert = UIAlertController(title: "BANNED", message: "You are banned from using GeoChat", preferredStyle: .alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: .destructive))
                                     self.present(alert, animated: true)

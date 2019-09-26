@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Lottie
 
 class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -27,11 +28,19 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
     
     var path:DatabaseReference!
     
+    
     var customProfilePicture = false
+    
+    // lottie and animation
+    
+    var animationView: AnimationView!
+    var blurEffectView: UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Hide lottie view by default
+        
         // Round our buttons corners
         signupButton.roundCorners()
         imageView.layer.cornerRadius = imageView.frame.height/2
@@ -41,11 +50,6 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
         path = Database.database().reference()
         
         pickImage.layer.cornerRadius = pickImage.bounds.height/2
-        
-        
-        
-
-        
     }
     
 
@@ -88,16 +92,46 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
     }
     
     
+    func startAnimation(){
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        
+        animationView = AnimationView(name: "locationLottie")
+        animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 700)
+        animationView.center = self.view.center
+        animationView.contentMode = .scaleAspectFit
+        view.addSubview(animationView)
+        animationView.play()
+        animationView.loopMode = .loop
+    }
     
+    func stopAnimation(){
+        blurEffectView.isHidden = true
+        animationView.isHidden = true
+        
+    }
 
     @IBAction func signupClicked(_ sender: UIButton) {
+        
+        startAnimation()
+        
         let handle = usernameText.text
         let email = emailText.text
         let password = passwordText.text
         
+        if (email?.count == 0 || password?.count == 0 || handle?.count == 0){
+            print("Empty")
+            stopAnimation()
+            return
+        }
+        
         let handles = path.child("handles")
         handles.observeSingleEvent(of: .value) { (DataSnapshot) in
             if DataSnapshot.hasChild(handle!){
+                self.stopAnimation()
                 let alert = UIAlertController(title: "Error", message: "Handle is already taken!", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Continue", style: .default))
                 self.present(alert, animated: true)
@@ -108,7 +142,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
                 Auth.auth().createUser(withEmail: email!, password: password!) { (AuthDataResult, Error) in
                     // This isnt catching error appropriately
                     if (Error != nil) {
-                        
+                        self.stopAnimation()
                         let alert = UIAlertController.init(title: "Error", message: Error?.localizedDescription, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Continue", style: .default))
                         self.present(alert, animated: true)

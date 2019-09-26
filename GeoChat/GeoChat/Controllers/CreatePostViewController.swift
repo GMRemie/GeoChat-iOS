@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import Lottie
 
 class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate,UICollectionViewDataSource  {
 
@@ -54,7 +55,8 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
 
     }
     
-    
+    var animationView: AnimationView!
+    var blurEffectView: UIVisualEffectView!
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -70,8 +72,32 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
         self.present(imagePicker, animated: true)
     }
     
+    
+    func startAnimation(){
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        
+        animationView = AnimationView(name: "locationLottie")
+        animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 700)
+        animationView.center = self.view.center
+        animationView.contentMode = .scaleAspectFit
+        view.addSubview(animationView)
+        animationView.play()
+        animationView.loopMode = .loop
+    }
+    
+    func stopAnimation(){
+        blurEffectView.isHidden = true
+        animationView.isHidden = true
+        
+    }
 
+    
     @IBAction func sendClicked(_ sender: UIButton) {
+        startAnimation()
         
         let caption = captionText.text!
         
@@ -89,6 +115,7 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
         
         let uploadTask = avatarRef.putData(data, metadata: metadata) { (StorageMetadata, Error) in
             if (Error != nil){
+                self.stopAnimation()
                 print("Error uploading file")
             }
         }
@@ -113,9 +140,10 @@ class CreatePostViewController: UIViewController, UITextFieldDelegate, UINavigat
 
                     self.path.child("public").child(uuid).setValue(geoMessage.convertToDict(), withCompletionBlock: { (Error, DatabaseReference) in
                         if (Error != nil){
+                            self.stopAnimation()
                             print("Error uploading GeoChat message to database")
                         }
-                        
+                        self.stopAnimation()
                         let alert = UIAlertController(title: "Message posted", message: "Your message has been posted publicly!", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (UIAlertAction) in
                             self.dismiss(animated: true)
