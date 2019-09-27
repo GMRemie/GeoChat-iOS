@@ -9,6 +9,24 @@
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
+		<key>GeoChatWatch.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D4043E2C23151756004338B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D420054E233D122600C86405</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

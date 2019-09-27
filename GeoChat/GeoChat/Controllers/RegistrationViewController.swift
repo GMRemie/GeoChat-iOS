@@ -139,6 +139,14 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
                 
                 // So handle is available at this point
                 
+                if (handle!.count < 3) {
+                    self.stopAnimation()
+                    let alert = UIAlertController(title: "Error", message: "Handle must be atleast 3 characters!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Continue", style: .default))
+                    self.present(alert, animated: true)
+                    return
+                }
+                
                 Auth.auth().createUser(withEmail: email!, password: password!) { (AuthDataResult, Error) in
                     // This isnt catching error appropriately
                     if (Error != nil) {

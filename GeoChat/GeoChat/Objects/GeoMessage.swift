@@ -11,6 +11,7 @@ import MapKit
 
 
 class GeoMessage: NSObject, MKAnnotation{
+
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var author: String?
@@ -64,4 +65,4 @@ class GeoMessage: NSObject, MKAnnotation{
         return dict
     }
 
-}
+    }

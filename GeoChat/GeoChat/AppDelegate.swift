@@ -10,17 +10,35 @@ import UIKit
 import Firebase
 import UserNotifications
 import CoreLocation
+import WatchConnectivity
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     let notificationCenter = UNUserNotificationCenter.current()
+    
+    // Our geomessages for WatchOS
+    var messages: [GeoMessage]!
+    
+    func loadMapMarkers(markers:[GeoMessage]){
+        // Sending map markers to Watch
+        messages = markers
+        DispatchQueue.main.async {
+            guard let data = try? NSKeyedArchiver.archivedData(withRootObject: self.messages, requiringSecureCoding: false) else { fatalError("Error")}
+            self.session?.sendMessageData(data, replyHandler: nil, errorHandler: nil)
+            print("Geo Markers sent")
+        }
+    }
 
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        if WCSession.isSupported() {
+            session = WCSession.default
+        }
         let options: UNAuthorizationOptions = [.alert,.sound,.badge]
         notificationCenter.requestAuthorization(options: options) { (didAllow, error) in
             if !didAllow{
@@ -28,6 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return true
+    }
+    
+    var session: WCSession?{
+        didSet{
+            if let session = session{
+                session.delegate = self
+                session.activate()
+            }
+        }
     }
 
     func handleEvent(for region: CLRegion!) {
@@ -80,5 +107,26 @@ extension AppDelegate: CLLocationManagerDelegate {
             handleEvent(for: region)
         }
     }
+}
+
+extension AppDelegate: WCSessionDelegate{
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("Request map markers from watch")
+    }
+    
+    
+    
 }
 

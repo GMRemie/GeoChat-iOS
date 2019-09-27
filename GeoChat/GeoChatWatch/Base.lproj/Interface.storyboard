@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="GeoChatWatch" customModuleProvider="target">
+                    <items>
+                        <map width="1" height="128" alignment="left" id="JCO-Ve-lEg"/>
+                        <button width="1" alignment="left" title="Refresh" id="j1F-gn-lIt">
+                            <connections>
+                                <action selector="refreshClicked" destination="AgC-eL-Hgc" id="bNQ-QT-xWl"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="mapVIew" destination="JCO-Ve-lEg" id="jiN-5N-nUf"/>
+                        <outlet property="refreshButton" destination="j1F-gn-lIt" id="ikV-T1-guK"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="25" y="29"/>
+        </scene>
+    </scenes>
+</document>

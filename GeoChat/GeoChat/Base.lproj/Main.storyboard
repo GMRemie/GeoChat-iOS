@@ -3428,7 +3428,6 @@
         <image name="profile" width="90" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1oq-UV-OgY"/>
         <segue reference="pI2-8n-6Ck"/>
         <segue reference="qkO-2N-kq1"/>
         <segue reference="rZP-L6-Yrb"/>

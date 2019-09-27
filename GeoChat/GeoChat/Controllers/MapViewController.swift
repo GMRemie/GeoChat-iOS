@@ -11,7 +11,10 @@ import MapKit
 import CoreLocation
 import Firebase
 import UserNotifications
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+import WatchConnectivity
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, WCSessionDelegate {
+ 
+    
 
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var mapkit: MKMapView!
@@ -68,7 +71,52 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         path = Database.database().reference()
         loadOurMessages()
         
+        /// Map
+        if (WCSession.isSupported()){
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
+    
     }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        sendWatchMessage(markers: Array(messages.values))
+    }
+    
+    func sendWatchMessage(markers: [GeoMessage]){
+        
+        var array = [GeoMessage]()
+        if (!markers.isEmpty){
+            array = markers
+        }
+        
+            if (WCSession.default.isReachable){
+                for message in array{
+                    print("Sending marker..")
+                    let coordString = "\(Double(message.coordinate.latitude))$\(Double(message.coordinate.longitude))"
+                    print("Sending coordinate \(coordString)")
+                    let message = ["marker":coordString]
+                    //WCSession.default.sendMessageData(data, replyHandler: nil, errorHandler: nil)
+                    WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: nil)
+                }
+                
+            }
+        
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
     
     func setupLocationManager(){
         locationmanager.delegate = self
@@ -78,6 +126,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     // Business Marker
     
     @IBAction func bizMarkerClick(_ sender: UIButton) {
+
         let option = UIAlertController(title: "Business Manager", message: "What would you like to do?", preferredStyle: .alert)
         option.addAction(UIAlertAction(title: "Marker Stats", style: .default, handler: { (UIAlertAction) in
             self.performSegue(withIdentifier: "markerStats", sender: self)
@@ -133,7 +182,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         userPath.observe(.value) { (DataSnapshot) in
             if let snap = DataSnapshot.value as? NSDictionary{
-                for (key,values) in snap{
+                for (key,_) in snap{
                     let k: String = key as! String
                     self.discovered.append(k)
                 }
@@ -162,7 +211,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     let privacy = newValues["privacy"] as! Bool
                     let date = newValues["date"] as! String
                     var biz = false
-                    var exp = newValues["exp"] as! Int
+                    let exp = newValues["exp"] as! Int
                     guard let bizCheck = newValues["biz"] as? Bool else{
                         biz = false
                         return
@@ -175,20 +224,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                         }
                         let msg = GeoMessage(title: title, lat: lat, long: long, author: author, caption: caption, url: url, id: k,privacy:false, biz: biz, date: date,exp:exp)
                         msg.users = users
-                        self.messages[k] = msg
                         if (self.discovered.contains(k)){
                             // already discovered
                         }else{
                             if (author != self.Profile.uniqueID){
                                 // Make sure we are a target user!
                                 if ((msg.users?.keys.contains(self.Profile.uniqueID))!){
+                                    self.messages[k] = msg
                                     self.monitorAndRegisterMessage(msg: msg)
                                 }
                             }
                         }
                     }else{
                         let msg = GeoMessage(title: title, lat: lat, long: long, author: author, caption: caption, url: url, id: k,privacy:false, biz: biz,date:date,exp:exp)
-                        self.messages[k] = msg
                         if (self.discovered.contains(k)){
                             // not discovered
                         }else{
@@ -205,16 +253,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                                     case 0:
                                         if (totalDays! < 7){
                                             self.monitorAndRegisterMessage(msg: msg)
+                                            self.messages[k] = msg
                                         }
                                         break
                                     case 1:
                                         if (totalDays! < 30){
                                             self.monitorAndRegisterMessage(msg: msg)
+                                            self.messages[k] = msg
+
                                         }
                                         break
                                     case 2:
                                         if (totalDays! < 365){
                                             self.monitorAndRegisterMessage(msg: msg)
+                                            self.messages[k] = msg
+
                                         }
                                         break
                                     default:
@@ -223,12 +276,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                                     }
                                 }else{
                                     self.monitorAndRegisterMessage(msg: msg)
+                                    self.messages[k] = msg
+
                                 }
                             }
                         }
 
                     }
                 }
+                self.sendWatchMessage(markers: Array(self.messages.values))
+
             }
         }
         
@@ -244,7 +301,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         if CLLocationManager.authorizationStatus() == .authorizedAlways{
             if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self){
              // Register
-                let maxDistance = locationmanager.maximumRegionMonitoringDistance
+                _ = locationmanager.maximumRegionMonitoringDistance
                 let region = CLCircularRegion(center: msg.coordinate, radius: 100, identifier: msg.id)
                 region.notifyOnEntry = true
                 region.notifyOnExit = false
@@ -447,3 +504,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
 }
+
+
