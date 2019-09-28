@@ -20,10 +20,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
+    @IBOutlet weak var businessCheck: UISwitch!
+    
     @IBOutlet weak var uploadButton: UIButton!
     var imagePicker:UIImagePickerController!
     var path:DatabaseReference!
     var changedPic = false
+    var bizDefault = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +78,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
                     self.bioText.text = bio
                 }
                 self.emailText.text = curUser.email!
+                if let biz = snap["business"] as? Bool{
+                    self.businessCheck.isOn = biz
+                    self.bizDefault = biz
+                }
                 
             }
         })
@@ -109,6 +116,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
         
     }
+    
+
     
 
     @IBAction func saveButtonClicked(_ sender: UIButton) {
@@ -150,6 +159,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
             }
             
         }
+        
+        
+        
         if handle.count > 0 {
             let handles = path.child("handles")
             handles.observeSingleEvent(of: .value) { (DataSnapshot) in
@@ -163,6 +175,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
                 }
             }
         }
+        
+        if (businessCheck.isOn != bizDefault){
+            //must've been changed
+            userPath.child("business").setValue(businessCheck.isOn)
+        }
+        
         if changedPic {
             let storageRef = Storage.storage().reference().child(curUser.uid)
             
@@ -186,7 +204,15 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
         }
         
         let alert = UIAlertController(title: "Success!", message: "Your account information has been updated! Please sign-out and back in for some of these changes to take affect.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Continue", style: .default))
+        alert.addAction(UIAlertAction(title: "Sign out", style: .default, handler: { (UIAlertAction) in
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+                        
+            self.performSegue(withIdentifier: "signOut", sender: self)
+        }))
         self.present(alert, animated: true)
         
     }
@@ -241,5 +267,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate, UINavigatio
         }else{
             view.frame.origin.y = 0
         }
+    }
+    
+    
+    @IBAction func businessAccountInfo(_ sender: UIButton) {
+        // Alert here
+        let info = UIAlertController(title: "Business Account", message: "A business account is the same as a regular account. Business accounts have the option to purchase premium business markers that everyone can see.", preferredStyle: .alert)
+        info.addAction(UIAlertAction(title: "Continue", style: .default))
+        self.present(info, animated: true)
     }
 }

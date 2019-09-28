@@ -55,8 +55,8 @@ class ProfileViewController: UIViewController {
     
     func updatePieChart(){
         
-        var followerCount:Double = (Double(received.count)) + 10
-        var followingCount:Double = (Double(sent.count)) + 10
+        var followerCount:Double = (Double(received.count))
+        var followingCount:Double = (Double(sent.count))
         var followers = PieChartDataEntry(value: followerCount)
         var following = PieChartDataEntry(value: followingCount)
         let dataEntries = [followers,following]
@@ -72,6 +72,10 @@ class ProfileViewController: UIViewController {
         
         pieChart.data = chartData
         
+        pieChart.centerText = "People"
+        chartDataSet.valueFont = UIFont(name: "Helvetica", size: 8.0)!
+        
+        
         
     }
     
@@ -85,9 +89,19 @@ class ProfileViewController: UIViewController {
         // Our Following, Followers, and friends
         let dict = data as! [String:Any]
         for (k,v) in dict{
-            
 
             switch k{
+                
+            case "friends":
+                print("This user has friends")
+                // Do both for following and friends
+                for (handle,id) in v as! [String:String]{
+                    sent[id] = handle
+                    received[id] = handle
+                }
+                
+                break
+                
             case "following":
                 for (handle,id) in v as! [String:String]{
                     sent[id] = handle
@@ -102,6 +116,7 @@ class ProfileViewController: UIViewController {
                 
             default:
                 // friends
+                // or not
                 break
             }
             
