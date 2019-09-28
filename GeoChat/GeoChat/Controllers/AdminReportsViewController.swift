@@ -78,12 +78,17 @@ class AdminReportsViewController: UIViewController, UITableViewDataSource, UITab
         
         cell.timeLbl.text = report!.date
         cell.reportLbl.text = "#\(key)"
-        cell.handleLbl.text = "ID:\(report!.reportedID)"
-        // get the handle
-        
-        
-        
-        
+        cell.handleLbl.text = "ID: Loading.."
+
+        // We need to receive our users handle based on their ID so setup observe method for each and call away
+        let userPath = Database.database().reference().child("users").child(report!.reportedID)
+        userPath.observeSingleEvent(of: .value) { (DataSnapshot) in
+            if let snap = DataSnapshot.value as? NSDictionary{
+                let handle = snap["handle"] as! String
+                cell.handleLbl.text = "ID: \(handle)"
+            }
+        }
+
         return cell
     }
     
