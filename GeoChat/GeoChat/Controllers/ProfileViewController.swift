@@ -184,5 +184,17 @@ class ProfileViewController: UIViewController {
             destination.header = "\(userInfo!.handle!)'s people"
             destination.people = resultA
         }
+        
+        // iPAD prepare methods
+        if let d = segue.destination as? SearchViewController{
+            d.curUser = userInfo
+        }
+        if let d = segue.destination as? MapViewController{
+            d.Profile = userInfo
+        }
+        if let d = segue.destination as? NotificationViewController{
+            d.curUser = userInfo
+        }
+        
     }
 }

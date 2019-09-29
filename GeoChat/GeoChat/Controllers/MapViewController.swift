@@ -38,18 +38,49 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
-    
+    enum DeviceTraitStatus {
+        ///IPAD and others: Width: Regular, Height: Regular
+        case wRhR
+        ///Any IPHONE Portrait Width: Compact, Height: Regular
+        case wChR
+        ///IPHONE Plus/Max Landscape Width: Regular, Height: Compact
+        case wRhC
+        ///IPHONE landscape Width: Compact, Height: Compact
+        case wChC
+        
+        static var current:DeviceTraitStatus{
+            
+            switch (UIScreen.main.traitCollection.horizontalSizeClass, UIScreen.main.traitCollection.verticalSizeClass){
+                
+            case (UIUserInterfaceSizeClass.regular, UIUserInterfaceSizeClass.regular):
+                return .wRhR
+            case (UIUserInterfaceSizeClass.compact, UIUserInterfaceSizeClass.regular):
+                return .wChR
+            case (UIUserInterfaceSizeClass.regular, UIUserInterfaceSizeClass.compact):
+                return .wRhC
+            case (UIUserInterfaceSizeClass.compact, UIUserInterfaceSizeClass.compact):
+                return .wChC
+            default:
+                return .wChR
+                
+            }
+            
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapkit.mapType = .mutedStandard
         
+        
         BusinessAccount = Profile.bizAccount
         administrator = Profile.administrator
         
         createButton.backgroundColor = Colors.yellow
         createButton.layer.cornerRadius = 40
+        
         
         if (BusinessAccount){
             bizButton.backgroundColor = Colors.yellow
@@ -76,6 +107,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             let session = WCSession.default
             session.delegate = self
             session.activate()
+        }
+        
+        if (DeviceTraitStatus.current == .wRhR){
+            print("its an ipad")
+            self.tabBarController?.tabBar.isHidden = true
+
         }
     
     }
@@ -140,6 +177,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepared has been called tho")
         if let destination = segue.destination as? CreatePostViewController {
             destination.profile = Profile
             destination.coordinates = locationmanager.location?.coordinate
@@ -160,6 +198,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         if let destination = segue.destination as? AdminReportsViewController{
             destination.admin = Profile
         }
+        
+        
+        // iPAD prepare methods
+        if let d = segue.destination as? SearchViewController{
+            d.curUser = Profile
+        }
+        if let d = segue.destination as? ProfileViewController{
+            d.userInfo = Profile
+        }
+        if let d = segue.destination as? NotificationViewController{
+            d.curUser = Profile
+        }
+        
     }
     
     func checkLocationServices(){

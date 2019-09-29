@@ -260,6 +260,17 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITextFieldDe
             destination.userInfo = selectedUser
             destination.curUser = curUser
         }
+        
+        // iPAD prepare methods
+        if let d = segue.destination as? NotificationViewController{
+            d.curUser = curUser
+        }
+        if let d = segue.destination as? ProfileViewController{
+            d.userInfo = curUser
+        }
+        if let d = segue.destination as? MapViewController{
+            d.Profile = curUser
+        }
     }
 
 }

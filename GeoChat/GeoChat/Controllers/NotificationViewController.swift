@@ -51,6 +51,19 @@ class NotificationViewController: UIViewController, UITableViewDataSource,UITabl
         return notifications.count
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // iPAD prepare methods
+        if let d = segue.destination as? SearchViewController{
+            d.curUser = curUser
+        }
+        if let d = segue.destination as? ProfileViewController{
+            d.userInfo = curUser
+        }
+        if let d = segue.destination as? MapViewController{
+            d.Profile = curUser
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notifyFriend") as! NotificationTableViewCell
         cell.detailButton.tag = indexPath.row

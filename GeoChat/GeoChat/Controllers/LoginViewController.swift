@@ -217,6 +217,7 @@ class LoginViewController: UIViewController {
         }
         
         if let destination = (segue.destination as? UITabBarController)?.viewControllers![1] as? SearchViewController{
+            print("Destination called")
             destination.curUser = selectedUserProfile
         }
         
