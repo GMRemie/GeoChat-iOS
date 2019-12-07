@@ -141,6 +141,8 @@ class InterfaceController: WKInterfaceController,WCSessionDelegate, CLLocationMa
         }
     }
     
+    session
+    
     override func willActivate() {
         super.willActivate()
         checkLocationServices()
